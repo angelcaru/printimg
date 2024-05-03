@@ -5,6 +5,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #ifndef IMG_ASSERT
 #define IMG_ASSERT(cond, msg) do { \

@@ -5,10 +5,14 @@
 - `pim` prints images to the terminal in an ANSI-encoded fashion. It supports reading images from the filesystem or using piped image data.
 - `rim` reads images from the filesystem and allows you to pipe them into another program.
 - `wim` writes piped image data to the filesystem
+- `istats` prints metadata of a piped image. Currently that is only the resolution
 
 - `rect` draws a rectangle
 
 ## Examples
+`rim C_Logo.png | istats`
+Get resolution of `C_Logo.png`
+
 `rim C_Logo.png | rect 100 100 100 100 #ff0000 | pim`
 Read `C_Logo.png`, draw a red 100-pixel square at coordinates (100, 100), and print it.
 
