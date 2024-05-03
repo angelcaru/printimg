@@ -10,13 +10,13 @@
 - `rect` draws a rectangle
 
 ## Examples
-`rim C_Logo.png | istats`
+`rim C_Logo.png | istats` <br>
 Get resolution of `C_Logo.png`
 
-`rim C_Logo.png | rect 100 100 100 100 #ff0000 | pim`
+`rim C_Logo.png | rect 100 100 100 100 #ff0000 | pim` <br>
 Read `C_Logo.png`, draw a red 100-pixel square at coordinates (100, 100), and print it.
 
-`rim C_Logo.png | rect 100 100 100 100 #ff0000 | wim out.png`
+`rim C_Logo.png | rect 100 100 100 100 #ff0000 | wim out.png` <br>
 Same as the above command, but writes the result to `out.png`. Note that no matter the file extension, it will be encoded in a PNG format. Also note that, although `pim` prints images in a reduced resolution, the manipulations are done at full scale, as can be observed by using a traditional image viewer.
 
 ## Compiling
