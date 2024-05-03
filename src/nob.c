@@ -7,7 +7,7 @@ typedef struct {
     char *out;
 } Program;
 
-#define OPT_LEVEL "3"
+#define OPT_LEVEL "0"
 bool compile_program(Program program) {
     Nob_Cmd cmd = {0};
     nob_cmd_append(&cmd, "cc");
@@ -25,6 +25,7 @@ Program programs[] = {
     { .src = "src/istats.c", .out = "build/istats" },
     { .src = "src/rect.c", .out = "build/rect" },
     { .src = "src/circle.c", .out = "build/circle" },
+    { .src = "src/crop.c", .out = "build/crop" },
 };
 
 int main(int argc, char **argv) {

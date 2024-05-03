@@ -36,6 +36,7 @@ bool img_write(Image img, FILE *stream);
 
 void draw_rect(Image *img, int x, int y, int w, int h, Color c);
 void draw_circle(Image *img, int x, int y, int r, Color c);
+Image img_crop(Image img, int x, int y, int w, int h);
 
 #endif // IMAGE_H
 
@@ -159,6 +160,15 @@ void draw_circle(Image *img, int cx, int cy, int r, Color c) {
             }
         }
     }
+}
+
+Image img_crop(Image img, int x, int y, int w, int h) {
+    return (Image) {
+        .width = w,
+        .height = h,
+        .stride = img.stride,
+        .data = &img.data[y * img.stride + x]
+    };
 }
 
 #endif

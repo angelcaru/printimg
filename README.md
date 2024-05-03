@@ -9,6 +9,7 @@
 
 - `rect` draws a rectangle
 - `circle` draws a circle
+- `crop` crops an image
 
 ## Examples
 `rim C_Logo.png | istats` <br>
