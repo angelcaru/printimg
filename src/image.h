@@ -35,6 +35,7 @@ bool img_read(Image *img, FILE *stream);
 bool img_write(Image img, FILE *stream);
 
 void draw_rect(Image *img, int x, int y, int w, int h, Color c);
+void draw_circle(Image *img, int x, int y, int r, Color c);
 
 #endif // IMAGE_H
 
@@ -141,6 +142,21 @@ void draw_rect(Image *img, int x, int y, int w, int h, Color c) {
             int cy = y + dy;
             if (cx < 0 || cx >= img->width || cy < 0 || cy >= img->height) continue;
             img->data[cy * img->stride + cx] = c;
+        }
+    }
+}
+
+void draw_circle(Image *img, int cx, int cy, int r, Color c) {
+    for (int dx = 0; dx < r * 2; dx++) {
+        for (int dy = 0; dy < r * 2; dy++) {
+            int x = cx + dx - r;
+            int y = cy + dy - r;
+            if (x < 0 || x >= img->width || y < 0 || y >= img->height) continue;
+            int dx2 = x - cx;
+            int dy2 = y - cy;
+            if (dx2 * dx2 + dy2 * dy2 < r * r) {
+                img->data[y * img->stride + x] = c;
+            }
         }
     }
 }

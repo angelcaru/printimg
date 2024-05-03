@@ -21,9 +21,10 @@ bool compile_program(Program program) {
 Program programs[] = {
     { .src = "src/pim.c", .out = "build/pim" },
     { .src = "src/rim.c", .out = "build/rim" },
-    { .src = "src/rect.c", .out = "build/rect" },
     { .src = "src/wim.c", .out = "build/wim" },
     { .src = "src/istats.c", .out = "build/istats" },
+    { .src = "src/rect.c", .out = "build/rect" },
+    { .src = "src/circle.c", .out = "build/circle" },
 };
 
 int main(int argc, char **argv) {

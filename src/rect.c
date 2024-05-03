@@ -28,7 +28,6 @@ int main(int argc, char **argv) {
     char *color_str = shift_expect(&argc, &argv, "color", program_name);
     Color c;
     if (!color_from_string(color_str, &c)) return 1;
-    fprintf(stderr, "[DEBUG] parsed color: %02hhx%02hhx%02hhx\n", c.r, c.g, c.b);
 
     Image img;
     if (!img_read(&img, stdin)) return 1;

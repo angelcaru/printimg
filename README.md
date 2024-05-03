@@ -8,6 +8,7 @@
 - `istats` prints metadata of a piped image. Currently that is only the resolution
 
 - `rect` draws a rectangle
+- `circle` draws a circle
 
 ## Examples
 `rim C_Logo.png | istats` <br>
