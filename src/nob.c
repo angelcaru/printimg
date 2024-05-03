@@ -7,7 +7,7 @@ typedef struct {
     char *out;
 } Program;
 
-#define OPT_LEVEL "0"
+#define OPT_LEVEL "3"
 bool compile_program(Program program) {
     Nob_Cmd cmd = {0};
     nob_cmd_append(&cmd, "cc");
