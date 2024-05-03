@@ -24,6 +24,8 @@ typedef union {
     };
 } Color;
 
+bool color_from_string(const char *str, Color *c);
+
 typedef struct {
     int width, height, stride;
     Color *data;
@@ -32,9 +34,64 @@ typedef struct {
 bool img_read(Image *img, FILE *stream);
 bool img_write(Image img, FILE *stream);
 
+void draw_rect(Image *img, int x, int y, int w, int h, Color c);
+
 #endif // IMAGE_H
 
 #ifdef IMAGE_IMPL
+
+bool ishex(char ch) {
+    return (ch >= '0' && ch <= '9') || (ch >= 'a' && ch <= 'f') || (ch >= 'A' && ch <= 'F');
+}
+
+uint8_t parse_nybble(char ch) {
+    if (ch >= '0' && ch <= '9') {
+        return (uint8_t)(ch - '0');
+    } else if (ch >= 'a' && ch <= 'f') {
+        return (uint8_t)(ch - 'a' + 10);
+    } else if (ch >= 'A' && ch <= 'F') {
+        return (uint8_t)(ch - 'A' + 10);
+    } else {
+        fprintf(stderr, "ERROR: invalid hex character: '%c'\n", ch);
+        return 0;
+    }
+}
+
+uint8_t parse_hex(const char *chs) {
+    if (!ishex(chs[0]) || !ishex(chs[1])) {
+        fprintf(stderr, "ERROR: invalid hex character: '%s'\n", chs);
+        return 0;
+    }
+    return (uint8_t)((uint8_t)parse_nybble(chs[0]) << 4 | parse_nybble(chs[1]));
+}
+
+bool ishexbyte(const char *chs) {
+    return ishex(chs[0]) && ishex(chs[1]);
+}
+
+bool color_from_string(const char *str, Color *c) {
+    if (*str != '#') {
+        fprintf(stderr, "ERROR: invalid color string '%s': expected '#' as first character\n", str);
+        return false;
+    }
+    str++;
+    if (!ishexbyte(str)) return false;
+    c->r = parse_hex(str); str += 2;
+
+    if (!ishexbyte(str)) return false;
+    c->g = parse_hex(str); str += 2;
+
+    if (!ishexbyte(str)) return false;
+    c->b = parse_hex(str); str += 2;
+
+    if (*str != '\0') {
+        fprintf(stderr, "ERROR: invalid color string '%s': expected end of input after 3 hex bytes\n", str);
+        return false;
+    }
+
+    c->a = 255;
+    return true;
+}
 
 bool img_read(Image *img, FILE *stream) {
     int size[2];
@@ -75,6 +132,17 @@ bool img_write(Image img, FILE *stream) {
         }
     }
     return true;
+}
+
+void draw_rect(Image *img, int x, int y, int w, int h, Color c) {
+    for (int dx = 0; dx < w; dx++) {
+        for (int dy = 0; dy < h; dy++) {
+            int cx = x + dx;
+            int cy = y + dy;
+            if (cx < 0 || cx >= img->width || cy < 0 || cy >= img->height) continue;
+            img->data[cy * img->stride + cx] = c;
+        }
+    }
 }
 
 #endif
