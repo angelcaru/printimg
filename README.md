@@ -7,11 +7,16 @@
 - `wim` writes piped image data to the filesystem
 - `istats` prints metadata of a piped image. Currently that is only the resolution
 
+- `blank` creates a new image with a specified resolution and, optionally, a background color.
+
 - `rect` draws a rectangle
 - `circle` draws a circle
 - `crop` crops an image
 
 ## Examples
+`blank 400 400 #ff0000 | rect 100 100 100 100 #00ff00 | pim` <br>
+Create a 400x400 image filled with red, with a green rectangle at (100, 100)
+
 `rim C_Logo.png | istats` <br>
 Get resolution of `C_Logo.png`
 
