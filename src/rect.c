@@ -4,17 +4,11 @@
 #define IMAGE_IMPL
 #include "image.h"
 
+#define CLI_IMPL
+#include "cli.h"
+
 void usage(const char *program_name) {
     printf("Usage: %s <x> <y> <w> <h> <color>\n", program_name);
-}
-
-char *shift_expect(int *argc, char ***argv, const char *arg_name, const char *program_name) {
-    if (*argc == 0) {
-        usage(program_name);
-        fprintf(stderr, "ERROR: missing %s\n", arg_name);
-        exit(1);
-    }
-    return nob_shift_args(argc, argv);
 }
 
 int main(int argc, char **argv) {
@@ -30,8 +24,8 @@ int main(int argc, char **argv) {
     if (!color_from_string(color_str, &c)) return 1;
 
     Image img;
-    if (!img_read(&img, stdin)) return 1;
+    if (!img_read(&img, stdin, program_name)) return 1;
     draw_rect(&img, x, y, w, h, c);
-    if (!img_write(img, stdout)) return 1;
+    if (!img_write(img, stdout, program_name)) return 1;
     return 0;
 }

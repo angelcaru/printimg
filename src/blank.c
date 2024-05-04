@@ -1,5 +1,5 @@
-#define NOB_IMPLEMENTATION
-#include "nob.h"
+#define CLI_IMPL
+#include "cli.h"
 
 #define IMAGE_IMPL
 #include "image.h"
@@ -9,17 +9,8 @@ void usage(const char *program_name) {
     printf("If [color] is not provided, the image will be filled by a transparent color");
 }
 
-char *shift_expect(int *argc, char ***argv, const char *arg_name, const char *program_name) {
-    if (*argc == 0) {
-        usage(program_name);
-        fprintf(stderr, "ERROR: missing %s\n", arg_name);
-        exit(1);
-    }
-    return nob_shift_args(argc, argv);
-}
-
 int main(int argc, char **argv) {
-    const char *program_name = nob_shift_args(&argc, &argv);
+    const char *program_name = shift_args(&argc, &argv);
 
     int w = atoi(shift_expect(&argc, &argv, "width", program_name));
     int h = atoi(shift_expect(&argc, &argv, "height", program_name));
@@ -28,7 +19,7 @@ int main(int argc, char **argv) {
     if (argc == 0) {
         c.rgba = 0;
     } else {
-        char *color_str = nob_shift_args(&argc, &argv);
+        char *color_str = shift_args(&argc, &argv);
         if (!color_from_string(color_str, &c)) return 1;
     }
 
@@ -42,6 +33,6 @@ int main(int argc, char **argv) {
     for (int i = 0; i < w * h; i++) {
         img.data[i] = c;
     }
-    if (!img_write(img, stdout)) return 1;
+    if (!img_write(img, stdout, program_name)) return 1;
     return 0;
 }

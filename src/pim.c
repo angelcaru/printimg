@@ -4,6 +4,9 @@
 #define IMAGE_IMPL
 #include "image.h"
 
+#define CLI_IMPL
+#include "cli.h"
+
 #include <sys/ioctl.h>
 #include <stdbool.h>
 #include <time.h>
@@ -40,13 +43,6 @@ Color color_lerp(Color a, Color b, float t) {
         .b = lerp(a.b, b.b, t),
         .a = lerp(a.a, b.a, t),
     };
-}
-
-char *shift_args(int *argc, char ***argv) {
-    --*argc;
-    char *ret = **argv;
-    ++*argv;
-    return ret;
 }
 
 void print_img_struct(Image img) {
@@ -86,11 +82,11 @@ bool print_img_file(const char *path) {
 }
 
 int main(int argc, char **argv) {
-    shift_args(&argc, &argv);
+    const char *program_name = shift_args(&argc, &argv);
 
     if (argc == 0) {
         Image img;
-        if (!img_read(&img, stdin)) return 1;
+        if (!img_read(&img, stdin, program_name)) return 1;
         print_img_struct(img);
         return 0;
     }

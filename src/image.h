@@ -31,8 +31,8 @@ typedef struct {
     Color *data;
 } Image;
 
-bool img_read(Image *img, FILE *stream);
-bool img_write(Image img, FILE *stream);
+bool img_read(Image *img, FILE *stream, const char *program_name);
+bool img_write(Image img, FILE *stream, const char *program_name);
 
 void draw_rect(Image *img, int x, int y, int w, int h, Color c);
 void draw_circle(Image *img, int x, int y, int r, Color c);
@@ -95,10 +95,10 @@ bool color_from_string(const char *str, Color *c) {
     return true;
 }
 
-bool img_read(Image *img, FILE *stream) {
+bool img_read(Image *img, FILE *stream, const char *program_name) {
     int size[2];
     if (fread(size, sizeof(int), 2, stream) != 2) {
-        fprintf(stderr, "ERROR: failed to read image size: %s\n", strerror(ferror(stream)));
+        fprintf(stderr, "%s: ERROR: failed to read image size: %s\n", program_name, strerror(ferror(stream)));
         return false;
     }
 
@@ -108,18 +108,18 @@ bool img_read(Image *img, FILE *stream) {
     img->height = size[1];
     img->data = malloc(data_size * sizeof(Color));
     if (fread(img->data, sizeof(Color), data_size, stream) != data_size) {
-        fprintf(stderr, "ERROR: failed to read image data: %s\n", strerror(ferror(stream)));
+        fprintf(stderr, "%s: ERROR: failed to read image data: %s\n", program_name, strerror(ferror(stream)));
         return false;
     }
 
     return true;
 }
 
-bool img_write(Image img, FILE *stream) {
+bool img_write(Image img, FILE *stream, const char *program_name) {
     int size[2] = {img.width, img.height};
     fwrite(size, sizeof(int), 2, stream);
     if (ferror(stream)) {
-        fprintf(stderr, "ERROR: failed to write image size: %s\n", strerror(ferror(stream)));
+        fprintf(stderr, "%s: ERROR: failed to write image size: %s\n", program_name, strerror(ferror(stream)));
         return false;
     }
 
@@ -128,7 +128,7 @@ bool img_write(Image img, FILE *stream) {
             Color pixel = img.data[y * img.stride + x];
             fwrite(&pixel, sizeof(Color), 1, stream);
             if (ferror(stream)) {
-                fprintf(stderr, "ERROR: failed to write pixel: %s\n", strerror(ferror(stream)));
+                fprintf(stderr, "%s: ERROR: failed to write pixel: %s\n", program_name, strerror(ferror(stream)));
                 return false;
             }
         }

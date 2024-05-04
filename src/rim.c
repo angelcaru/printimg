@@ -4,15 +4,15 @@
 #define IMAGE_IMPL
 #include "image.h"
 
-#define NOB_IMPLEMENTATION
-#include "nob.h"
+#define CLI_IMPL
+#include "cli.h"
 
 void usage(const char *program_name) {
     printf("Usage: %s <filename>\n", program_name);
 }
 
 int main(int argc, char **argv) {
-    const char *program_name = nob_shift_args(&argc, &argv);
+    const char *program_name = shift_args(&argc, &argv);
     if (argc == 0) {
         usage(program_name);
         fprintf(stderr, "ERROR: no filename provided\n");
@@ -31,6 +31,6 @@ int main(int argc, char **argv) {
         .stride = width,
         .data = (Color *)data
     };
-    if (!img_write(img, stdout)) return 1;
+    if (!img_write(img, stdout, program_name)) return 1;
     return 0;
 }
