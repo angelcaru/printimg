@@ -26,6 +26,7 @@ Program programs[] = {
     { .src = "src/rect.c", .out = "build/rect" },
     { .src = "src/circle.c", .out = "build/circle" },
     { .src = "src/crop.c", .out = "build/crop" },
+    { .src = "src/blank.c", .out = "build/blank" },
 };
 
 int main(int argc, char **argv) {
