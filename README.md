@@ -29,7 +29,7 @@ Same as the above command, but writes the result to `out.png`. Note that no matt
 
 ## Compiling
 ```console
-$ cc -o nob src/nob.c
+$ cc -o nob nob.c
 $ ./nob
 ```
 

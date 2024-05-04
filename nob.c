@@ -11,6 +11,7 @@ typedef struct {
 bool compile_program(Program program) {
     Nob_Cmd cmd = {0};
     nob_cmd_append(&cmd, "cc");
+    nob_cmd_append(&cmd, "-I./include", "-I.");
     nob_cmd_append(&cmd, "-Wall", "-Wextra", "-O"OPT_LEVEL);
     nob_cmd_append(&cmd, "-o", program.out);
     nob_cmd_append(&cmd, program.src);
