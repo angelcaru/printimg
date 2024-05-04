@@ -17,6 +17,7 @@
 `blank 400 400 #ff0000 | rect 100 100 100 100 #00ff00 | pim` <br>
 Create a 400x400 image filled with red, with a green rectangle at (100, 100)
 
+`istats C_Logo.png` <br>
 `rim C_Logo.png | istats` <br>
 Get resolution of `C_Logo.png`
 
