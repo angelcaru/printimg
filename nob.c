@@ -8,15 +8,25 @@ typedef struct {
 } Program;
 
 #define OPT_LEVEL "0"
-bool compile_program(Program program) {
+void compile_program_cmd(Program program, Nob_Cmd *cmd) {
+    nob_cmd_append(cmd, "cc");
+    nob_cmd_append(cmd, "-I./include", "-I.");
+    nob_cmd_append(cmd, "-Wall", "-Wextra", "-O"OPT_LEVEL);
+    nob_cmd_append(cmd, "-o", program.out);
+    nob_cmd_append(cmd, program.src);
+    nob_cmd_append(cmd, "-lm");
+}
+
+bool compile_program_sync(Program program) {
     Nob_Cmd cmd = {0};
-    nob_cmd_append(&cmd, "cc");
-    nob_cmd_append(&cmd, "-I./include", "-I.");
-    nob_cmd_append(&cmd, "-Wall", "-Wextra", "-O"OPT_LEVEL);
-    nob_cmd_append(&cmd, "-o", program.out);
-    nob_cmd_append(&cmd, program.src);
-    nob_cmd_append(&cmd, "-lm");
+    compile_program_cmd(program, &cmd);
     return nob_cmd_run_sync(cmd);
+}
+
+Nob_Proc compile_program_async(Program program) {
+    Nob_Cmd cmd = {0};
+    compile_program_cmd(program, &cmd);
+    return nob_cmd_run_async(cmd);
 }
 
 Program programs[] = {
@@ -32,14 +42,30 @@ Program programs[] = {
 
 int main(int argc, char **argv) {
     NOB_GO_REBUILD_URSELF(argc, argv);
+    nob_shift_args(&argc, &argv);
+
+    bool parallel;
+    if (argc != 0 && strcmp(argv[0], "--parallelize") == 0) {
+        parallel = true;
+        nob_shift_args(&argc, &argv);
+    }
 
     if (!nob_mkdir_if_not_exists("build")) return 1;
 
+    Nob_Procs procs = {0};
     for (int i = 0; i < NOB_ARRAY_LEN(programs); i++) {
-        if (!compile_program(programs[i])) return 1;
+        if (parallel) {
+            Nob_Proc proc = compile_program_async(programs[i]);
+            nob_da_append(&procs, proc);
+        } else {
+            if (!compile_program_sync(programs[i])) return 1;
+        }
     }
 
-    nob_shift_args(&argc, &argv);
+    if (parallel) {
+        nob_procs_wait(procs);
+    }
+
     if (argc >= 1 && strcmp(nob_shift_args(&argc, &argv), "run") == 0) {
         char *tool = nob_shift_args(&argc, &argv);
         char *tool_path = nob_temp_sprintf("./build/%s", tool);
