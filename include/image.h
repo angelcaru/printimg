@@ -177,19 +177,43 @@ Image img_crop(Image img, int x, int y, int w, int h) {
 }
 
 // https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
-void draw_line(Image *img, int x1, int y1, int x2, int y2, Color c) {
+void _draw_line(Image *img, int x1, int y1, int x2, int y2, Color c, void (*plot)(Image *img, int x, int y, Color c)) {
     int dx = x2 - x1;
     int dy = y2 - y1;
     int D = 2*dy - dx;
     int y = y1;
 
+    int yi = dy < 0 ? -1 : 1;
+    dy *= yi;
+
     for (int x = x1; x <= x2; x++) {
-        draw_point(img, x, y, c);
+        plot(img, x, y, c);
         if (D > 0) {
-            y++;
-            D -= 2*dx;
+            y += yi;
+            D += 2 * (dy-dx);
+        } else {
+            D += 2*dy;
         }
-        D += 2*dy;
+    }
+}
+
+void _draw_point_yx(Image *img, int y, int x, Color c) {
+    draw_point(img, x, y, c);
+}
+
+void draw_line(Image *img, int x1, int y1, int x2, int y2, Color c) {
+    if (abs(y2 - y1) < abs(x2 - x1)) {
+        if (x1 > x2) {
+            _draw_line(img, x2, y2, x1, y1, c, draw_point);
+        } else {
+            _draw_line(img, x1, y1, x2, y2, c, draw_point);
+        }
+    } else {
+        if (y1 > y2) {
+            _draw_line(img, y2, x2, y1, x1, c, _draw_point_yx);
+        } else {
+            _draw_line(img, y1, x1, y2, x2, c, _draw_point_yx);
+        }
     }
 }
 
