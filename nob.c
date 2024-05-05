@@ -8,12 +8,16 @@ typedef struct {
 } Program;
 
 #define OPT_LEVEL "0"
-void compile_program_cmd(Program program, Nob_Cmd *cmd) {
-    nob_cmd_append(cmd, "cc");
+void cflags(Nob_Cmd *cmd) {
     nob_cmd_append(cmd, "-I./include", "-I.");
     nob_cmd_append(cmd, "-Wall", "-Wextra", "-O"OPT_LEVEL);
+}
+
+void compile_program_cmd(Program program, Nob_Cmd *cmd) {
+    nob_cmd_append(cmd, "cc");
+    cflags(cmd);
     nob_cmd_append(cmd, "-o", program.out);
-    nob_cmd_append(cmd, program.src);
+    nob_cmd_append(cmd, program.src, "build/libs.o");
     nob_cmd_append(cmd, "-lm");
 }
 
@@ -40,6 +44,16 @@ Program programs[] = {
     { .src = "src/blank.c", .out = "build/blank" },
 };
 
+const char *libs[] = {
+    "include/stb_image.h",
+    "include/stb_image_write.h",
+    "include/cli.h",
+    "include/image.h",
+    "include/libs.c",
+    "nob.h",
+};
+size_t lib_count = NOB_ARRAY_LEN(libs);
+
 int main(int argc, char **argv) {
     NOB_GO_REBUILD_URSELF(argc, argv);
     nob_shift_args(&argc, &argv);
@@ -51,6 +65,15 @@ int main(int argc, char **argv) {
     }
 
     if (!nob_mkdir_if_not_exists("build")) return 1;
+
+    if (nob_needs_rebuild("build/libs.o", libs, lib_count)) {
+        Nob_Cmd cmd = {0};
+        nob_cmd_append(&cmd, "cc");
+        cflags(&cmd);
+        nob_cmd_append(&cmd, "-c", "include/libs.c");
+        nob_cmd_append(&cmd, "-o", "build/libs.o");
+        if (!nob_cmd_run_sync(cmd)) return 1;
+    }
 
     Nob_Procs procs = {0};
     for (int i = 0; i < NOB_ARRAY_LEN(programs); i++) {

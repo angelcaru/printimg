@@ -1,10 +1,5 @@
-#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-
-#define IMAGE_IMPL
 #include "image.h"
-
-#define CLI_IMPL
 #include "cli.h"
 
 void usage(const char *program_name) {

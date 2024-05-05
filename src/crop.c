@@ -1,7 +1,4 @@
-#define CLI_IMPL
 #include "cli.h"
-
-#define IMAGE_IMPL
 #include "image.h"
 
 void usage(const char *program_name) {
