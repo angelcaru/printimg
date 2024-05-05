@@ -10,6 +10,7 @@
 - `blank` creates a new image with a specified resolution and, optionally, a background color.
 
 - `rect` draws a rectangle
+- `line` draws a line
 - `circle` draws a circle
 - `crop` crops an image
 

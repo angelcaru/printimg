@@ -42,6 +42,7 @@ Program programs[] = {
     { .src = "src/circle.c", .out = "build/circle" },
     { .src = "src/crop.c", .out = "build/crop" },
     { .src = "src/blank.c", .out = "build/blank" },
+    { .src = "src/line.c", .out = "build/line" },
 };
 
 const char *libs[] = {

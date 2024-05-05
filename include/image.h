@@ -34,9 +34,11 @@ typedef struct {
 bool img_read(Image *img, FILE *stream, const char *program_name);
 bool img_write(Image img, FILE *stream, const char *program_name);
 
+void draw_point(Image *img, int x, int y, Color c);
 void draw_rect(Image *img, int x, int y, int w, int h, Color c);
 void draw_circle(Image *img, int x, int y, int r, Color c);
 Image img_crop(Image img, int x, int y, int w, int h);
+void draw_line(Image *img, int x1, int y1, int x2, int y2, Color c);
 
 #endif // IMAGE_H
 
@@ -136,13 +138,17 @@ bool img_write(Image img, FILE *stream, const char *program_name) {
     return true;
 }
 
+void draw_point(Image *img, int x, int y, Color c) {
+    if (x < 0 || x >= img->width || y < 0 || y >= img->height) return;
+    img->data[y * img->stride + x] = c;
+}
+
 void draw_rect(Image *img, int x, int y, int w, int h, Color c) {
     for (int dx = 0; dx < w; dx++) {
         for (int dy = 0; dy < h; dy++) {
             int cx = x + dx;
             int cy = y + dy;
-            if (cx < 0 || cx >= img->width || cy < 0 || cy >= img->height) continue;
-            img->data[cy * img->stride + cx] = c;
+            draw_point(img, cx, cy, c);
         }
     }
 }
@@ -152,11 +158,10 @@ void draw_circle(Image *img, int cx, int cy, int r, Color c) {
         for (int dy = 0; dy < r * 2; dy++) {
             int x = cx + dx - r;
             int y = cy + dy - r;
-            if (x < 0 || x >= img->width || y < 0 || y >= img->height) continue;
             int dx2 = x - cx;
             int dy2 = y - cy;
             if (dx2 * dx2 + dy2 * dy2 < r * r) {
-                img->data[y * img->stride + x] = c;
+                draw_point(img, x, y, c);
             }
         }
     }
@@ -169,6 +174,23 @@ Image img_crop(Image img, int x, int y, int w, int h) {
         .stride = img.stride,
         .data = &img.data[y * img.stride + x]
     };
+}
+
+// https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
+void draw_line(Image *img, int x1, int y1, int x2, int y2, Color c) {
+    int dx = x2 - x1;
+    int dy = y2 - y1;
+    int D = 2*dy - dx;
+    int y = y1;
+
+    for (int x = x1; x <= x2; x++) {
+        draw_point(img, x, y, c);
+        if (D > 0) {
+            y++;
+            D -= 2*dx;
+        }
+        D += 2*dy;
+    }
 }
 
 #endif
