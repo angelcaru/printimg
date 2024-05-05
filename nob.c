@@ -81,7 +81,10 @@ int main(int argc, char **argv) {
             Nob_Proc proc = compile_program_async(programs[i]);
             nob_da_append(&procs, proc);
         } else {
-            if (!compile_program_sync(programs[i])) return 1;
+            const char *srcs[] = { programs[i].src, "build/libs.o" };
+            if (nob_needs_rebuild(programs[i].out, srcs, 2)) {
+                if (!compile_program_sync(programs[i])) return 1;
+            }
         }
     }
 
