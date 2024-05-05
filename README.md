@@ -13,6 +13,7 @@
 - `line` draws a line
 - `circle` draws a circle
 - `crop` crops an image
+- `resz` resizes an image
 
 ## Examples
 `blank 400 400 #ff0000 | rect 100 100 100 100 #00ff00 | pim` <br>

@@ -10,6 +10,7 @@ typedef struct {
 #define OPT_LEVEL "0"
 void cflags(Nob_Cmd *cmd) {
     nob_cmd_append(cmd, "-I./include", "-I.");
+    nob_cmd_append(cmd, "-ggdb");
     nob_cmd_append(cmd, "-Wall", "-Wextra", "-O"OPT_LEVEL);
 }
 
@@ -43,6 +44,7 @@ Program programs[] = {
     { .src = "src/crop.c", .out = "build/crop" },
     { .src = "src/blank.c", .out = "build/blank" },
     { .src = "src/line.c", .out = "build/line" },
+    { .src = "src/resz.c", .out = "build/resz" },
 };
 
 const char *libs[] = {
