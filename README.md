@@ -3,6 +3,7 @@
 
 ## Provided utilities
 - `pim` prints images to the terminal in an ANSI-encoded fashion. It supports reading images from the filesystem or using piped image data.
+- `kpim` prints images to the terminal using the [Kitty Graphics Protocol](https://sw.kovidgoyal.net/kitty/graphics-protocol/). It supports reading images from the filesystem or using piped image data.
 - `rim` reads images from the filesystem and allows you to pipe them into another program.
 - `wim` writes piped image data to the filesystem
 - `istats` prints metadata of a piped image. Currently that is only the resolution
@@ -27,7 +28,7 @@ Get resolution of `C_Logo.png`
 Read `C_Logo.png`, draw a red 100-pixel square at coordinates (100, 100), and print it.
 
 `rim C_Logo.png | rect 100 100 100 100 #ff0000 | wim out.png` <br>
-Same as the above command, but writes the result to `out.png`. Note that no matter the file extension, it will be encoded in a PNG format. Also note that, although `pim` prints images in a reduced resolution, the manipulations are done at full scale, as can be observed by using a traditional image viewer.
+Same as the above command, but writes the result to `out.png`. Note that no matter the file extension, it will be encoded in a PNG format. Also note that, although `pim` prints images in a reduced resolution, the manipulations are done at full scale, as can be observed by using a traditional image viewer. If you don't want to lose resolution and your terminal supports the Kitty Graphics Protocol, you can use `kpim` instead of `pim`
 
 ## Compiling
 ```console
