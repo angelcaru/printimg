@@ -13,3 +13,5 @@
 #define NOB_IMPLEMENTATION
 #include "nob.h"
 
+#define ANSITERM_IMPLEMENTATION
+#include "ansiterm.h"

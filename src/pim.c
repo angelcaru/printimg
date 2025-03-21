@@ -1,6 +1,7 @@
 #include "stb_image.h"
 #include "image.h"
 #include "cli.h"
+#include "ansiterm.h"
 
 #include <sys/ioctl.h>
 #include <stdbool.h>
@@ -8,14 +9,6 @@
 
 void usage(const char *program_name) {
     printf("Usage: %s <filename>\n", program_name);
-}
-
-void set_bg(Color c) {
-    printf("\x1b[48;2;%d;%d;%dm", c.r, c.g, c.b);
-}
-
-void reset_term(void) {
-    printf("\x1b[0m");
 }
 
 void get_term_size(int *w, int *h) {
@@ -54,10 +47,10 @@ void print_img_struct(Image img) {
             if (c.a < 255) {
                 c = color_lerp(ASSUMED_BG, c, c.a / 255.0f);
             }
-            set_bg(c);
+            ansiterm_set_bg_24bit(c.r, c.g, c.b);
             printf(" ");
         }
-        reset_term();
+        ansiterm_set_attr(ANSITERM_ATTR_RESET);
         printf("\n");
     }
 }
