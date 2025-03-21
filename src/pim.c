@@ -42,13 +42,18 @@ void print_img_struct(Image img) {
 
     for (float y = 0; y < img.height; y += ystep) {
         for (float x = 0; x < img.width; x += xstep) {
-            Color c = img.data[(int)y * img.stride + (int)x];
+            int x_int = (int)x;
+            int y_int_top = (int)y;
+            int y_int_bottom = (int)(y + ystep / 2); if (y_int_bottom >= img.height) y_int_bottom = y_int_top;
+            Color top = img.data[y_int_top * img.stride + x_int];
+            Color bottom = img.data[y_int_bottom * img.stride + x_int];
 
-            if (c.a < 255) {
-                c = color_lerp(ASSUMED_BG, c, c.a / 255.0f);
-            }
-            ansiterm_set_bg_24bit(c.r, c.g, c.b);
-            printf(" ");
+            if (top.a < 255) top = color_lerp(ASSUMED_BG, top, top.a / 255.0f);
+            if (bottom.a < 255) bottom = color_lerp(ASSUMED_BG, bottom, bottom.a / 255.0f);
+
+            ansiterm_set_bg_24bit(top.r, top.g, top.b);
+            ansiterm_set_fg_24bit(bottom.r, bottom.g, bottom.b);
+            printf("▄");
         }
         ansiterm_set_attr(ANSITERM_ATTR_RESET);
         printf("\n");
