@@ -36,6 +36,7 @@ Nob_Proc compile_program_async(Program program) {
 
 Program programs[] = {
     { .src = "src/pim.c", .out = "build/pim" },
+    { .src = "src/kpim.c", .out = "build/kpim" },
     { .src = "src/rim.c", .out = "build/rim" },
     { .src = "src/wim.c", .out = "build/wim" },
     { .src = "src/istats.c", .out = "build/istats" },
@@ -48,11 +49,13 @@ Program programs[] = {
 };
 
 const char *libs[] = {
-    "include/stb_image.h",
-    "include/stb_image_write.h",
+    "include/libs.c",
     "include/cli.h",
     "include/image.h",
-    "include/libs.c",
+    "include/stb_image.h",
+    "include/stb_image_write.h",
+    "include/ansiterm.h",
+    "include/base64.h",
     "nob.h",
 };
 size_t lib_count = NOB_ARRAY_LEN(libs);
