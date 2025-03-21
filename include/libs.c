@@ -15,3 +15,6 @@
 
 #define ANSITERM_IMPLEMENTATION
 #include "ansiterm.h"
+
+#define BASE64_IMPLEMENTATION
+#include "base64.h"
