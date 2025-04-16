@@ -32,8 +32,8 @@ int main(int argc, char **argv) {
 		fprintf(stderr, "image and mask must be the same size\n");
 		return 1;
 	}
-	for (size_t y = 0; y < img.height; y++) {
-		for (size_t x = 0; x < img.width; x++) {
+	for (size_t y = 0; y < (size_t)img.height; y++) {
+		for (size_t x = 0; x < (size_t)img.width; x++) {
 			uint8_t r = IMG_AT(&img, x, y).r * IMG_AT(&mask, x, y).r / 255;
 			uint8_t g = IMG_AT(&img, x, y).g * IMG_AT(&mask, x, y).g / 255;
 			uint8_t b = IMG_AT(&img, x, y).b * IMG_AT(&mask, x, y).b / 255;
