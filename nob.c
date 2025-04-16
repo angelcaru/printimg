@@ -46,6 +46,8 @@ Program programs[] = {
     { .src = "src/blank.c", .out = "build/blank" },
     { .src = "src/line.c", .out = "build/line" },
     { .src = "src/resz.c", .out = "build/resz" },
+    { .src = "src/iover.c", .out = "build/iover" },
+    { .src = "src/imul.c", .out = "build/imul" },
 };
 
 const char *libs[] = {

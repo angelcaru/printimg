@@ -15,6 +15,9 @@
 - `circle` draws a circle
 - `crop` crops an image
 - `resz` resizes an image
+- `iover`: overlay an image on top of another one: `rim C_Logo.png | iover 100 100 100 100 grass.png | pim`
+- `imul`: multiply two images (aka apply a mask): `rim C_Logo.png | imul mask.png | pim`
+  - If you want to generate a mask also using printimg you can use `wim -`: `rim C_Logo.png | imul <(blank 860 1008 '#ff0000' | circle 200 200 200 '#ffffff' | wim -) | pim`
 
 ## Examples
 `blank 400 400 #ff0000 | rect 100 100 100 100 #00ff00 | pim` <br>

@@ -31,6 +31,8 @@ typedef struct {
     Color *data;
 } Image;
 
+#define IMG_AT(img, x, y) (img)->data[(y) * (img)->stride + (x)]
+
 bool img_read(Image *img, FILE *stream, const char *program_name);
 bool img_write(Image img, FILE *stream, const char *program_name);
 
@@ -127,7 +129,7 @@ bool img_write(Image img, FILE *stream, const char *program_name) {
 
     for (int y = 0; y < img.height; y++) {
         for (int x = 0; x < img.width; x++) {
-            Color pixel = img.data[y * img.stride + x];
+            Color pixel = IMG_AT(&img, x, y);
             fwrite(&pixel, sizeof(Color), 1, stream);
             if (ferror(stream)) {
                 fprintf(stderr, "%s: ERROR: failed to write pixel: %s\n", program_name, strerror(ferror(stream)));
@@ -140,7 +142,7 @@ bool img_write(Image img, FILE *stream, const char *program_name) {
 
 void draw_point(Image *img, int x, int y, Color c) {
     if (x < 0 || x >= img->width || y < 0 || y >= img->height) return;
-    img->data[y * img->stride + x] = c;
+    IMG_AT(img, x, y) = c;
 }
 
 void draw_rect(Image *img, int x, int y, int w, int h, Color c) {
@@ -172,7 +174,7 @@ Image img_crop(Image img, int x, int y, int w, int h) {
         .width = w,
         .height = h,
         .stride = img.stride,
-        .data = &img.data[y * img.stride + x]
+        .data = &IMG_AT(&img, x, y),
     };
 }
 

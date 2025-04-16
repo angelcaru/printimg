@@ -1,0 +1,1250 @@
+
+src/pim.c,194
+void usage(10,145
+void get_term_size(14,239
+#define ASSUMED_BG 21,386
+float lerp(23,474
+Color color_lerp(27,545
+void print_img_struct(36,750
+bool print_img_file(63,1777
+int main(77,2215
+
+src/kpim.c,95
+void usage(9,121
+void print_img_struct(13,215
+bool print_img_file(42,1204
+int main(56,1642
+
+src/istats.c,33
+void usage(5,60
+int main(9,143
+
+src/line.c,33
+void usage(5,54
+int main(9,165
+
+src/crop.c,33
+void usage(4,37
+int main(8,136
+
+src/wim.c,33
+void usage(5,66
+int main(9,160
+
+src/rect.c,33
+void usage(5,54
+int main(9,161
+
+src/resz.c,78
+void usage(6,58
+void size_down(10,150
+void size_up(21,468
+int main(32,784
+
+src/blank.c,33
+void usage(4,37
+int main(9,236
+
+src/rim.c,33
+void usage(5,60
+int main(9,154
+
+src/circle.c,33
+void usage(4,37
+int main(8,145
+
+nob.h,9410
+#define NOB_H_165,5897
+#define NOB_ASSERT 169,5952
+#define NOB_REALLOC 174,6043
+#define NOB_FREE 179,6134
+#    define WIN32_LEAN_AND_MEAN192,6352
+#    define _WINUSER_193,6384
+#    define _WINGDI_194,6406
+#    define _IMM_195,6427
+#    define _WINCON_196,6445
+#    define NOB_LINE_END 209,6695
+#    define NOB_LINE_END 211,6733
+#define NOB_PRINTF_FORMAT(216,6888
+#define NOB_PRINTF_FORMAT(219,7060
+#define NOB_UNUSED(222,7124
+#define NOB_TODO(223,7164
+#define NOB_UNREACHABLE(224,7282
+#define NOB_ARRAY_LEN(226,7415
+#define NOB_ARRAY_GET(227,7477
+    NOB_INFO,231,7608
+    NOB_WARNING,232,7622
+    NOB_ERROR,233,7639
+    NOB_NO_LOGS,234,7654
+} Nob_Log_Level;235,7671
+void nob_log(240,7821
+#define nob_shift(244,8023
+#define nob_shift_args(249,8411
+    const char **items;items252,8488
+    size_t count;253,8512
+    size_t capacity;254,8530
+} Nob_File_Paths;255,8551
+    NOB_FILE_REGULAR 258,8585
+    NOB_FILE_DIRECTORY,259,8611
+    NOB_FILE_SYMLINK,260,8635
+    NOB_FILE_OTHER,261,8657
+} Nob_File_Type;262,8677
+#define nob_return_defer(272,9129
+#define NOB_DA_INIT_CAP 276,9271
+#define nob_da_reserve(279,9307
+#define nob_da_append(294,10477
+#define nob_da_free(300,10690
+#define nob_da_append_many(303,10779
+#define nob_da_resize(310,11286
+#define nob_da_last(316,11471
+#define nob_da_remove_unordered(317,11553
+    char *items;items325,11861
+    size_t count;326,11878
+    size_t capacity;327,11896
+} Nob_String_Builder;328,11917
+int nob_sb_appendf(331,12009
+#define nob_sb_append_buf(334,12145
+#define nob_sb_append_cstr(337,12276
+#define nob_sb_append_null(346,12612
+#define nob_sb_free(349,12723
+typedef HANDLE Nob_Proc;353,12801
+#define NOB_INVALID_PROC 354,12826
+typedef HANDLE Nob_Fd;355,12872
+#define NOB_INVALID_FD 356,12895
+typedef int Nob_Proc;358,12945
+#define NOB_INVALID_PROC 359,12967
+typedef int Nob_Fd;360,12997
+#define NOB_INVALID_FD 361,13017
+    Nob_Proc *items;items369,13206
+    size_t count;370,13227
+    size_t capacity;371,13245
+} Nob_Procs;372,13266
+    const char **items;items382,13553
+    size_t count;383,13577
+    size_t capacity;384,13595
+} Nob_Cmd;385,13616
+    Nob_Fd *fdin;fdin401,14043
+    Nob_Fd *fdout;fdout402,14061
+    Nob_Fd *fderr;fderr403,14080
+} Nob_Cmd_Redirect;404,14099
+#define nob_cmd_append(411,14390
+#define nob_cmd_extend(416,14596
+#define nob_cmd_free(420,14760
+#define nob_cmd_run_async(423,14837
+#define NOB_TEMP_CAPACITY 443,16068
+char *nob_temp_sprintf(nob_temp_sprintf447,16212
+#       define NOB_REBUILD_URSELF(466,17051
+#       define NOB_REBUILD_URSELF(468,17178
+#       define NOB_REBUILD_URSELF(470,17306
+#    define NOB_REBUILD_URSELF(473,17450
+#define NOB_GO_REBUILD_URSELF(500,18610
+#define NOB_GO_REBUILD_URSELF_PLUS(516,19164
+    size_t count;519,19299
+    const char *data;data520,19317
+} Nob_String_View;521,19339
+#define nob_sb_to_sv(536,20099
+#define SV_Fmt 540,20215
+#define SV_Arg(543,20269
+#define WIN32_LEAN_AND_MEAN590,22088
+struct dirent593,22138
+    char d_name[d_name595,22154
+typedef struct DIR DIR;598,22187
+Nob_Log_Level nob_minimal_log_level 618,22621
+#define NOB_WIN32_ERR_MSG_SIZE 627,22997
+char *nob_win32_error_message(nob_win32_error_message630,23073
+void nob__go_rebuild_urself(661,24136
+static size_t nob_temp_size 713,25970
+static char nob_temp[nob_temp714,26003
+bool nob_mkdir_if_not_exists(716,26051
+bool nob_copy_file(736,26545
+void nob_cmd_render(798,28372
+Nob_Proc nob_cmd_run_async_redirect(814,28845
+Nob_Proc nob_cmd_run_async_and_reset(906,32173
+Nob_Proc nob_cmd_run_async_redirect_and_reset(913,32311
+Nob_Fd nob_fd_open_for_read(932,32840
+Nob_Fd nob_fd_open_for_write(965,33808
+void nob_fd_close(1000,35078
+bool nob_procs_wait(1009,35185
+bool nob_procs_wait_and_reset(1018,35385
+bool nob_proc_wait(1025,35523
+bool nob_cmd_run_sync_redirect(1082,37062
+bool nob_cmd_run_sync(1089,37272
+bool nob_cmd_run_sync_and_reset(1096,37427
+bool nob_cmd_run_sync_redirect_and_reset(1103,37549
+void nob_log(1122,38062
+bool nob_read_entire_dir(1148,38617
+bool nob_write_entire_file(1184,39645
+Nob_File_Type nob_get_file_type(1216,40381
+bool nob_delete_file(1242,41266
+bool nob_copy_directory_recursively(1260,41729
+char *nob_temp_strdup(nob_temp_strdup1324,43835
+void *nob_temp_alloc(nob_temp_alloc1334,44085
+char *nob_temp_sprintf(nob_temp_sprintf1342,44278
+void nob_temp_reset(1360,44758
+size_t nob_temp_save(1365,44812
+void nob_temp_rewind(1370,44870
+const char *nob_temp_sv_to_cstr(nob_temp_sv_to_cstr1375,44947
+int nob_needs_rebuild(1384,45220
+int nob_needs_rebuild1(1452,48080
+const char *nob_path_name(nob_path_name1457,48216
+bool nob_rename(1470,48577
+bool nob_read_entire_file(1487,49148
+int nob_sb_appendf(1518,50158
+Nob_String_View nob_sv_chop_by_delim(1540,50802
+Nob_String_View nob_sv_chop_left(1560,51200
+Nob_String_View nob_sv_from_parts(1574,51446
+Nob_String_View nob_sv_trim_left(1582,51598
+Nob_String_View nob_sv_trim_right(1592,51804
+Nob_String_View nob_sv_trim(1602,52022
+Nob_String_View nob_sv_from_cstr(1607,52127
+bool nob_sv_eq(1612,52233
+bool nob_sv_end_with(1621,52415
+bool nob_sv_starts_with(1633,52781
+int nob_file_exists(1647,53208
+const char *nob_get_current_dir_temp(nob_get_current_dir_temp1664,53689
+bool nob_set_current_dir(1691,54496
+struct DIR1710,55034
+    HANDLE hFind;1712,55047
+    WIN32_FIND_DATA data;1713,55065
+    struct dirent *dirent;dirent1714,55091
+DIR *opendir(opendir1717,55122
+struct dirent *readdir(readdir1745,55769
+int closedir(1774,56622
+#define NOB_STRIP_PREFIX_GUARD_1798,57181
+        #define TODO 1806,57772
+        #define UNREACHABLE 1807,57802
+        #define UNUSED 1808,57846
+        #define ARRAY_LEN 1809,57880
+        #define ARRAY_GET 1810,57920
+        #define INFO 1811,57960
+        #define WARNING 1812,57990
+        #define ERROR 1813,58026
+        #define NO_LOGS 1814,58058
+        #define Log_Level 1815,58094
+        #define minimal_log_level 1816,58134
+        #define shift 1820,58428
+        #define shift_args 1821,58460
+        #define File_Paths 1822,58502
+        #define FILE_REGULAR 1823,58544
+        #define FILE_DIRECTORY 1824,58590
+        #define FILE_SYMLINK 1825,58640
+        #define FILE_OTHER 1826,58686
+        #define File_Type 1827,58728
+        #define mkdir_if_not_exists 1828,58768
+        #define copy_file 1829,58828
+        #define copy_directory_recursively 1830,58868
+        #define read_entire_dir 1831,58942
+        #define write_entire_file 1832,58994
+        #define get_file_type 1833,59050
+        #define delete_file 1834,59098
+        #define return_defer 1835,59142
+        #define da_append 1836,59188
+        #define da_free 1837,59228
+        #define da_append_many 1838,59264
+        #define da_resize 1839,59314
+        #define da_reserve 1840,59354
+        #define da_last 1841,59396
+        #define da_remove_unordered 1842,59432
+        #define String_Builder 1843,59492
+        #define read_entire_file 1844,59542
+        #define sb_appendf 1845,59596
+        #define sb_append_buf 1846,59638
+        #define sb_append_cstr 1847,59686
+        #define sb_append_null 1848,59736
+        #define sb_free 1849,59786
+        #define Proc 1850,59822
+        #define INVALID_PROC 1851,59852
+        #define Fd 1852,59898
+        #define INVALID_FD 1853,59924
+        #define fd_open_for_read 1854,59966
+        #define fd_open_for_write 1855,60020
+        #define fd_close 1856,60076
+        #define Procs 1857,60114
+        #define procs_wait 1858,60146
+        #define procs_wait_and_reset 1859,60188
+        #define proc_wait 1860,60250
+        #define Cmd 1861,60290
+        #define Cmd_Redirect 1862,60318
+        #define cmd_render 1863,60364
+        #define cmd_append 1864,60406
+        #define cmd_extend 1865,60448
+        #define cmd_free 1866,60490
+        #define cmd_run_async 1867,60528
+        #define cmd_run_async_and_reset 1868,60576
+        #define cmd_run_async_redirect 1869,60644
+        #define cmd_run_async_redirect_and_reset 1870,60710
+        #define cmd_run_sync 1871,60796
+        #define cmd_run_sync_and_reset 1872,60842
+        #define cmd_run_sync_redirect 1873,60908
+        #define cmd_run_sync_redirect_and_reset 1874,60972
+        #define temp_strdup 1875,61056
+        #define temp_alloc 1876,61100
+        #define temp_sprintf 1877,61142
+        #define temp_reset 1878,61188
+        #define temp_save 1879,61230
+        #define temp_rewind 1880,61270
+        #define path_name 1881,61314
+        #define rename 1882,61354
+        #define needs_rebuild 1883,61388
+        #define needs_rebuild1 1884,61436
+        #define file_exists 1885,61486
+        #define get_current_dir_temp 1886,61530
+        #define set_current_dir 1887,61592
+        #define String_View 1888,61644
+        #define temp_sv_to_cstr 1889,61688
+        #define sv_chop_by_delim 1890,61740
+        #define sv_chop_left 1891,61794
+        #define sv_trim 1892,61840
+        #define sv_trim_left 1893,61876
+        #define sv_trim_right 1894,61922
+        #define sv_eq 1895,61970
+        #define sv_starts_with 1896,62002
+        #define sv_end_with 1897,62052
+        #define sv_from_cstr 1898,62096
+        #define sv_from_parts 1899,62142
+        #define sb_to_sv 1900,62190
+        #define win32_error_message 1901,62228
+
+include/ansiterm.h,7456
+#define ANSITERM_H_2,20
+#define ANSITERM_ASSERT 12,186
+#define ansiterm_move_cursor_rel(15,244
+#define ansiterm_move_cursor_lines(18,388
+#define ansiterm_move_cursor_col_abs(21,522
+#define ansiterm_move_cursor_abs(24,668
+    ANSITERM_CLEAR_TO_END 28,839
+    ANSITERM_CLEAR_FROM_BEGIN 29,870
+    ANSITERM_CLEAR_ALL 30,905
+    ANSITERM_CLEAR_SCROLLBACK 31,933
+} Ansiterm_Clear;32,968
+#define ansiterm_clear(34,987
+#define ansiterm_clear_line(37,1102
+#define ansiterm_scroll(40,1232
+    ANSITERM_ATTR_RESET,44,1348
+    ANSITERM_ATTR_BOLD,45,1373
+    ANSITERM_ATTR_FAINT,46,1397
+    ANSITERM_ATTR_ITALIC,47,1422
+    ANSITERM_ATTR_UNDERLINE,48,1448
+    ANSITERM_ATTR_BLINK_SLOW,49,1477
+    ANSITERM_ATTR_BLINK_FAST,50,1507
+    ANSITERM_ATTR_SWAP_COLORS,51,1537
+    ANSITERM_ATTR_HIDE,52,1568
+    ANSITERM_ATTR_STRIKETHROUGH,53,1592
+    ANSITERM_ATTR_FONT,54,1625
+    ANSITERM_ATTR_FONT_FRAKTUR 55,1649
+    ANSITERM_ATTR_DOUBLE_UNDERLINE,56,1686
+    ANSITERM_ATTR_NORMAL_INTENSITY,57,1722
+    ANSITERM_ATTR_NEITHER_ITALIC_NOR_BLACKLETTER,58,1758
+    ANSITERM_ATTR_NO_UNDERLINE,59,1808
+    ANSITERM_ATTR_NO_BLINK,60,1840
+    ANSITERM_ATTR_PROPORTIONAL_SPACING,61,1868
+    ANSITERM_ATTR_NO_SWAP_COLORS,62,1908
+    ANSITERM_ATTR_NO_HIDE,63,1942
+    ANSITERM_ATTR_NO_STRIKETHROUGH,64,1969
+    ANSITERM_ATTR_SET_FG,65,2005
+    ANSITERM_ATTR_SET_FG_EX 66,2031
+    ANSITERM_ATTR_DEFAULT_FG,67,2065
+    ANSITERM_ATTR_SET_BG,68,2095
+    ANSITERM_ATTR_SET_BG_EX 69,2121
+    ANSITERM_ATTR_DEFAULT_BG,70,2155
+    ANSITERM_ATTR_NO_PROPORTIONAL_SPACING,71,2185
+    ANSITERM_ATTR_FRAMED,72,2228
+    ANSITERM_ATTR_ENCIRCLED,73,2254
+    ANSITERM_ATTR_OVERLINED,74,2283
+    ANSITERM_ATTR_NEITHER_FRAMED_NOR_ENCIRCLED,75,2312
+    ANSITERM_ATTR_NO_OVERLINE,76,2360
+    ANSITERM_ATTR_SET_UNDERLINE_COLOR,77,2391
+    ANSITERM_ATTR_DEFAULT_UNDERLINE_COLOR,78,2430
+    ANSITERM_ATTR_IDEOGRAM_UNDERLINE_OR_RIGHT_SIDE_LINE,79,2473
+    ANSITERM_ATTR_IDEOGRAM_DOUBLE_UNDERLINE_OR_DOUBLE_RIGHT_SIDE_LINE,80,2530
+    ANSITERM_ATTR_IDEOGRAM_OVERLINE_OR_LEFT_SIDE_LINE,81,2601
+    ANSITERM_ATTR_IDEOGRAM_DOUBLE_OVERLINE_OR_DOUBLE_LEFT_SIDE_LINE,82,2656
+    ANSITERM_ATTR_IDEOGRAM_STRESS_MARKING,83,2725
+    ANSITERM_ATTR_NO_IDEOGRAM,84,2768
+    ANSITERM_ATTR_SUPERSCRIPT 85,2799
+    ANSITERM_ATTR_SUBSCRIPT,86,2835
+    ANSITERM_ATTR_NEITHER_SUPERSCRIPT_NOR_SUBSCRIPT,87,2864
+    ANSITERM_ATTR_SET_BRIGHT_FG 88,2917
+    ANSITERM_ATTR_SET_BRIGHT_BG 89,2955
+} Ansiterm_Attr;90,2994
+#define ansiterm_set_attr(92,3012
+#define ansiterm_set_fg_3bit(95,3135
+#define ansiterm_set_fg_8bit(98,3264
+#define ansiterm_set_fg_24bit(101,3393
+#define ansiterm_set_bg_3bit(104,3547
+#define ansiterm_set_bg_8bit(107,3676
+#define ansiterm_set_bg_24bit(110,3805
+#define ansiterm_set_colors_3bit(113,3959
+#define ansiterm_fset_colors_3bit(114,4042
+#define ansiterm_set_colors_8bit(115,4157
+#define ansiterm_fset_colors_8bit(116,4240
+#define ansiterm_set_colors_24bit(117,4355
+#define ansiterm_fset_colors_24bit(118,4484
+#define ansiterm_aux_port(120,4647
+#define ansiterm_save_cursor(123,4758
+#define ansiterm_restore_cursor(126,4860
+#define ansiterm_set_cursor_visibility(129,4971
+#define ansiterm_set_alternate_buffer(132,5133
+void ansiterm_fmove_cursor_rel(139,5353
+void ansiterm_fmove_cursor_lines(149,5654
+void ansiterm_fmove_cursor_col_abs(156,5828
+void ansiterm_fmove_cursor_abs(160,5930
+void ansiterm_fclear(164,6050
+void ansiterm_fclear_line(168,6146
+void ansiterm_fscroll(172,6247
+void ansiterm_fset_attr(179,6410
+void ansiterm_faux_port(183,6508
+void ansiterm_fset_fg_3bit(191,6659
+void ansiterm_fset_fg_8bit(196,6857
+void ansiterm_fset_fg_24bit(200,6986
+void ansiterm_fset_bg_3bit(204,7146
+void ansiterm_fset_bg_8bit(209,7344
+void ansiterm_fset_bg_24bit(213,7473
+void ansiterm_fsave_cursor(217,7633
+void ansiterm_frestore_cursor(221,7707
+void ansiterm_fset_cursor_visibility(225,7784
+void ansiterm_fset_alternate_buffer(229,7906
+#define ANSITERM_STRIP_PREFIX_GUARD236,8144
+#define move_cursor_rel 238,8181
+#define fmove_cursor_rel 239,8230
+#define move_cursor_lines 240,8281
+#define fmove_cursor_lines 241,8334
+#define move_cursor_col_abs 242,8389
+#define fmove_cursor_col_abs 243,8446
+#define move_cursor_abs 244,8505
+#define fmove_cursor_abs 245,8554
+#define CLEAR_TO_END 246,8605
+#define CLEAR_FROM_BEGIN 247,8648
+#define CLEAR_ALL 248,8699
+#define CLEAR_SCROLLBACK 249,8736
+#define Clear 250,8787
+#define clear 251,8816
+#define fclear 252,8845
+#define clear_line 253,8876
+#define fclear_line 254,8915
+#define scroll 255,8956
+#define fscroll 256,8987
+#define ATTR_RESET 257,9020
+#define ATTR_BOLD 258,9059
+#define ATTR_FAINT 259,9096
+#define ATTR_ITALIC 260,9135
+#define ATTR_UNDERLINE 261,9176
+#define ATTR_BLINK_SLOW 262,9223
+#define ATTR_BLINK_FAST 263,9272
+#define ATTR_SWAP_COLORS 264,9321
+#define ATTR_HIDE 265,9372
+#define ATTR_STRIKETHROUGH 266,9409
+#define ATTR_FONT 267,9464
+#define ATTR_FONT_FRAKTUR 268,9501
+#define ATTR_DOUBLE_UNDERLINE 269,9554
+#define ATTR_NORMAL_INTENSITY 270,9615
+#define ATTR_NEITHER_ITALIC_NOR_BLACKLETTER 271,9676
+#define ATTR_NO_UNDERLINE 272,9765
+#define ATTR_NO_BLINK 273,9818
+#define ATTR_PROPORTIONAL_SPACING 274,9863
+#define ATTR_NO_SWAP_COLORS 275,9932
+#define ATTR_NO_HIDE 276,9989
+#define ATTR_NO_STRIKETHROUGH 277,10032
+#define ATTR_SET_FG 278,10093
+#define ATTR_SET_FG_EX 279,10134
+#define ATTR_DEFAULT_FG 280,10181
+#define ATTR_SET_BG 281,10230
+#define ATTR_SET_BG_EX 282,10271
+#define ATTR_DEFAULT_BG 283,10318
+#define ATTR_NO_PROPORTIONAL_SPACING 284,10367
+#define ATTR_FRAMED 285,10442
+#define ATTR_ENCIRCLED 286,10483
+#define ATTR_OVERLINED 287,10530
+#define ATTR_NEITHER_FRAMED_NOR_ENCIRCLED 288,10577
+#define ATTR_NO_OVERLINE 289,10662
+#define ATTR_SET_UNDERLINE_COLOR 290,10713
+#define ATTR_DEFAULT_UNDERLINE_COLOR 291,10780
+#define ATTR_IDEOGRAM_UNDERLINE_OR_RIGHT_SIDE_LINE 292,10855
+#define ATTR_IDEOGRAM_DOUBLE_UNDERLINE_OR_DOUBLE_RIGHT_SIDE_LINE 293,10958
+#define ATTR_IDEOGRAM_OVERLINE_OR_LEFT_SIDE_LINE 294,11089
+#define ATTR_IDEOGRAM_DOUBLE_OVERLINE_OR_DOUBLE_LEFT_SIDE_LINE 295,11188
+#define ATTR_IDEOGRAM_STRESS_MARKING 296,11315
+#define ATTR_NO_IDEOGRAM 297,11390
+#define ATTR_SUPERSCRIPT 298,11441
+#define ATTR_SUBSCRIPT 299,11492
+#define ATTR_NEITHER_SUPERSCRIPT_NOR_SUBSCRIPT 300,11539
+#define ATTR_SET_BRIGHT_FG 301,11634
+#define ATTR_SET_BRIGHT_BG 302,11689
+#define set_attr 303,11744
+#define fset_attr 304,11779
+#define set_fg_3bit 305,11816
+#define fset_fg_3bit 306,11857
+#define set_fg_8bit 307,11900
+#define fset_fg_8bit 308,11941
+#define set_fg_24bit 309,11984
+#define fset_fg_24bit 310,12027
+#define set_bg_3bit 311,12072
+#define fset_bg_3bit 312,12113
+#define set_bg_8bit 313,12156
+#define fset_bg_8bit 314,12197
+#define set_bg_24bit 315,12240
+#define fset_bg_24bit 316,12283
+#define set_colors_3bit 317,12328
+#define fset_colors_3bit 318,12377
+#define set_colors_8bit 319,12428
+#define fset_colors_8bit 320,12477
+#define set_colors_24bit 321,12528
+#define fset_colors_24bit 322,12579
+#define aux_port 323,12632
+#define faux_port 324,12667
+#define save_cursor 325,12704
+#define fsave_cursor 326,12745
+#define restore_cursor 327,12788
+#define frestore_cursor 328,12835
+#define set_cursor_visibility 329,12884
+#define fset_cursor_visibility 330,12945
+#define set_alternate_buffer 331,13008
+#define fset_alternate_buffer 332,13067
+
+include/base64.h,403
+#define BASE64_H31,1090
+#define SAFEBASE6445,1757
+#define isMultipleOf(46,1776
+#define isbase64ValidChr(61,2405
+const static char* b64=78,3112
+const static unsigned char unb64[unb6485,3601
+char* base64(122,5495
+  #define SEXTET_A(200,9263
+  #define SEXTET_B(210,9837
+  #define SEXTET_C(220,10378
+  #define SEXTET_D(227,10623
+unsigned char* unbase64(301,13780
+int base64integrity(418,18332
+
+include/stb_image_write.h,4379
+#define INCLUDE_STB_IMAGE_WRITE_H152,6700
+#define STBIWDEF 159,6902
+#define STBIWDEF 162,6952
+#define STBIWDEF 164,6987
+STBIWDEF int stbi_write_tga_with_rle;170,7109
+STBIWDEF int stbi_write_png_compression_level;171,7147
+STBIWDEF int stbi_write_force_png_filter;172,7194
+typedef void stbi_write_func(187,7914
+   #define _CRT_SECURE_NO_WARNINGS203,8794
+   #define _CRT_NONSTDC_NO_DEPRECATE206,8876
+#define STBIW_MALLOC(228,9463
+#define STBIW_REALLOC(229,9506
+#define STBIW_FREE(230,9555
+#define STBIW_REALLOC_SIZED(234,9631
+#define STBIW_MEMMOVE(239,9728
+#define STBIW_ASSERT(245,9824
+#define STBIW_UCHAR(248,9866
+static int stbi_write_png_compression_level 251,9949
+static int stbi_write_tga_with_rle 252,9998
+static int stbi_write_force_png_filter 253,10038
+int stbi_write_png_compression_level 255,10089
+int stbi_write_tga_with_rle 256,10131
+int stbi_write_force_png_filter 257,10164
+static int stbi__flip_vertically_on_write 260,10210
+STBIWDEF void stbi_flip_vertically_on_write(262,10258
+   stbi_write_func *func;func269,10376
+   void *context;context270,10402
+   unsigned char buffer[buffer271,10420
+   int buf_used;272,10449
+} stbi__write_context;273,10466
+static void stbi__start_write_callbacks(276,10529
+static void stbi__stdio_write(284,10706
+#define STBIW_EXTERN 291,10888
+#define STBIW_EXTERN 293,10926
+STBIW_EXTERN __declspec(295,10961
+static FILE *stbiw__fopen(stbiw__fopen304,11541
+static int stbi__start_write_file(332,12277
+static void stbi__end_write_file(339,12492
+typedef unsigned int stbiw_uint32;346,12617
+typedef int stb_image_write_test[stb_image_write_test347,12652
+static void stbiw__writefv(349,12721
+static void stbiw__writef(378,13699
+static void stbiw__write_flush(386,13855
+static void stbiw__putc(394,14017
+static void stbiw__write1(399,14118
+static void stbiw__write3(406,14304
+static void stbiw__write_pixel(418,14612
+static void stbiw__write_pixels(451,15654
+static int stbiw__outfile(478,16347
+static int stbi_write_bmp_core(492,16765
+STBIWDEF int stbi_write_bmp_to_func(512,17695
+STBIWDEF int stbi_write_bmp(520,17982
+static int stbi_write_tga_core(532,18320
+STBIWDEF int stbi_write_tga_to_func(611,20875
+STBIWDEF int stbi_write_tga(619,21171
+#define stbiw__max(635,21647
+static void stbiw__linear_to_rgbe(639,21727
+static void stbiw__write_run_data(656,22283
+static void stbiw__write_dump_data(664,22551
+static void stbiw__write_hdr_scanline(672,22869
+static int stbi_write_hdr_core(761,25780
+STBIWDEF int stbi_write_hdr_to_func(787,26766
+STBIWDEF int stbi_write_hdr(794,27036
+#define stbiw__sbraw(814,27615
+#define stbiw__sbm(815,27666
+#define stbiw__sbn(816,27709
+#define stbiw__sbneedgrow(818,27753
+#define stbiw__sbmaybegrow(819,27830
+#define stbiw__sbgrow(820,27914
+#define stbiw__sbpush(822,27993
+#define stbiw__sbcount(823,28080
+#define stbiw__sbfree(824,28139
+static void *stbiw__sbgrowf(stbiw__sbgrowf826,28215
+static unsigned char *stbiw__zlib_flushf(stbiw__zlib_flushf839,28659
+static int stbiw__zlib_bitrev(849,28913
+static unsigned int stbiw__zlib_countm(859,29085
+static unsigned int stbiw__zhash(867,29270
+#define stbiw__zlib_flush(879,29546
+#define stbiw__zlib_add(880,29626
+#define stbiw__zlib_huffa(882,29749
+#define stbiw__zlib_huff1(884,29850
+#define stbiw__zlib_huff2(885,29913
+#define stbiw__zlib_huff3(886,29981
+#define stbiw__zlib_huff4(887,30044
+#define stbiw__zlib_huff(888,30110
+#define stbiw__zlib_huffb(889,30270
+#define stbiw__ZHASH 891,30359
+STBIWDEF unsigned char * stbi_zlib_compress(895,30420
+static unsigned int stbiw__crc32(1024,35564
+#define stbiw__wpng4(1073,39160
+#define stbiw__wp32(1074,39289
+#define stbiw__wptag(1075,39365
+static void stbiw__wpcrc(1077,39435
+static unsigned char stbiw__paeth(1083,39584
+static void stbiw__encode_png_line(1092,39910
+STBIWDEF unsigned char *stbi_write_png_to_mem(stbi_write_png_to_mem1128,41643
+STBIWDEF int stbi_write_png(1215,44630
+STBIWDEF int stbi_write_png_to_func(1231,45069
+static const unsigned char stbiw__jpg_ZigZag[stbiw__jpg_ZigZag1250,45657
+static void stbiw__jpg_writeBits(1253,45901
+static void stbiw__jpg_DCT(1270,46359
+static void stbiw__jpg_calcBits(1318,47695
+static int stbiw__jpg_processDU(1328,47931
+static int stbi_write_jpg_core(1398,50610
+STBIWDEF int stbi_write_jpg_to_func(1607,65935
+STBIWDEF int stbi_write_jpg(1616,66254
+
+include/libs.c,239
+#define CLI_IMPL1,0
+#define IMAGE_IMPL4,35
+#define STB_IMAGE_IMPLEMENTATION7,74
+#define STB_IMAGE_WRITE_IMPLEMENTATION10,131
+#define NOB_IMPLEMENTATION13,200
+#define ANSITERM_IMPLEMENTATION16,245
+#define BASE64_IMPLEMENTATION19,300
+
+include/cli.h,95
+#define CLI_H2,14
+char *shift_args(shift_args16,295
+char *shift_expect(shift_expect22,407
+
+include/image.h,713
+#define IMAGE_H2,16
+#define IMG_ASSERT(12,173
+    uint32_t rgba;21,399
+        uint8_t r,23,431
+        uint8_t r, g,23,431
+        uint8_t r, g, b,23,431
+        uint8_t r, g, b, a;23,431
+} Color;25,466
+    int width,30,545
+    int width, height,30,545
+    int width, height, stride;30,545
+    Color *data;data31,576
+} Image;32,593
+bool ishex(47,1078
+uint8_t parse_nybble(51,1196
+uint8_t parse_hex(64,1571
+bool ishexbyte(72,1830
+bool color_from_string(76,1910
+bool img_read(100,2554
+bool img_write(120,3227
+void draw_point(141,3975
+void draw_rect(146,4142
+void draw_circle(156,4403
+Image img_crop(170,4802
+void _draw_line(180,5068
+void _draw_point_yx(200,5513
+void draw_line(204,5603
+
+include/stb_image.h,24493
+#define STBI_INCLUDE_STB_IMAGE_H129,6373
+#define STBI_VERSION 373,16886
+   STBI_default 377,16917
+   STBI_grey 379,16973
+   STBI_grey_alpha 380,16997
+   STBI_rgb 381,17021
+   STBI_rgb_alpha 382,17045
+typedef unsigned char stbi_uc;386,17092
+typedef unsigned short stbi_us;387,17123
+#define STBIDEF 395,17236
+#define STBIDEF 397,17265
+   int      (*read)read412,17513
+   void     (*skip)skip413,17642
+   int      (*eof)eof414,17768
+} stbi_io_callbacks;415,17874
+   #define STBI_NO_JPEG553,24307
+   #define STBI_NO_PNG556,24366
+   #define STBI_NO_BMP559,24424
+   #define STBI_NO_PSD562,24482
+   #define STBI_NO_TGA565,24540
+   #define STBI_NO_GIF568,24598
+   #define STBI_NO_HDR571,24656
+   #define STBI_NO_PIC574,24714
+   #define STBI_NO_PNM577,24772
+#define STBI_NO_ZLIB582,24895
+#define STBI_ASSERT(602,25230
+#define STBI_EXTERN 606,25290
+#define STBI_EXTERN 608,25327
+   #define stbi_inline 614,25402
+   #define stbi_inline616,25441
+   #define stbi_inline 619,25480
+      #define STBI_THREAD_LOCAL 624,25610
+      #define STBI_THREAD_LOCAL 626,25704
+      #define STBI_THREAD_LOCAL 628,25778
+      #define STBI_THREAD_LOCAL 630,25935
+        #define STBI_THREAD_LOCAL 635,26055
+typedef unsigned short stbi__uint16;641,26183
+typedef   signed short stbi__int16;642,26220
+typedef unsigned int   stbi__uint32;643,26256
+typedef   signed int   stbi__int32;644,26293
+typedef uint16_t stbi__uint16;647,26355
+typedef int16_t  stbi__int16;648,26386
+typedef uint32_t stbi__uint32;649,26416
+typedef int32_t  stbi__int32;650,26447
+typedef unsigned char validate_uint32[validate_uint32654,26535
+#define STBI_NOTUSED(657,26625
+#define STBI_NOTUSED(659,26666
+#define STBI_HAS_LROTL663,26731
+   #define stbi_lrot(667,26784
+   #define stbi_lrot(669,26829
+#define STBI_MALLOC(681,27264
+#define STBI_REALLOC(682,27309
+#define STBI_FREE(683,27360
+#define STBI_REALLOC_SIZED(687,27437
+#define STBI__X64_TARGET692,27573
+#define STBI__X86_TARGET694,27640
+#define STBI_NO_SIMD705,28244
+#define STBI_NO_SIMD720,28988
+#define STBI_SSE2724,29104
+static int stbi__cpuid3(731,29227
+static int stbi__cpuid3(738,29322
+#define STBI_SIMD_ALIGN(750,29455
+static int stbi__sse2_available(753,29573
+#define STBI_SIMD_ALIGN(761,29728
+static int stbi__sse2_available(764,29853
+#undef STBI_NEON778,30174
+#define STBI_SIMD_ALIGN(784,30254
+#define STBI_SIMD_ALIGN(786,30328
+#define STBI_SIMD_ALIGN(791,30442
+#define STBI_MAX_DIMENSIONS 795,30524
+   stbi__uint32 img_x,806,30828
+   stbi__uint32 img_x, img_y;806,30828
+   int img_n,807,30858
+   int img_n, img_out_n;807,30858
+   stbi_io_callbacks io;809,30884
+   void *io_user_data;io_user_data810,30909
+   int read_from_callbacks;812,30933
+   int buflen;813,30961
+   stbi_uc buffer_start[buffer_start814,30976
+   int callback_already_read;815,31006
+   stbi_uc *img_buffer,img_buffer817,31037
+   stbi_uc *img_buffer, *img_buffer_end;img_buffer_end817,31037
+   stbi_uc *img_buffer_original,img_buffer_original818,31078
+   stbi_uc *img_buffer_original, *img_buffer_original_end;img_buffer_original_end818,31078
+} stbi__context;819,31137
+static void stbi__start_mem(825,31246
+static void stbi__start_callbacks(835,31594
+static int stbi__stdio_read(849,31993
+static void stbi__stdio_skip(854,32109
+static int stbi__stdio_eof(864,32391
+static stbi_io_callbacks stbi__stdio_callbacks 869,32490
+static void stbi__start_file(876,32607
+static void stbi__rewind(885,32806
+   STBI_ORDER_RGB,896,33183
+   STBI_ORDER_BGR897,33202
+   int bits_per_channel;902,33241
+   int num_channels;903,33266
+   int channel_order;904,33287
+} stbi__result_info;905,33309
+const char *stbi__g_failure_reason;stbi__g_failure_reason969,36090
+STBIDEF const char *stbi_failure_reason(stbi_failure_reason971,36127
+static int stbi__err(977,36244
+static void *stbi__malloc(stbi__malloc984,36340
+static int stbi__addsizes_valid(1001,36997
+static int stbi__mul2sizes_valid(1013,37375
+static int stbi__mad2sizes_valid(1023,37771
+static int stbi__mad3sizes_valid(1030,37993
+static int stbi__mad4sizes_valid(1038,38337
+static void *stbi__malloc_mad2(stbi__malloc_mad21047,38711
+static void *stbi__malloc_mad3(stbi__malloc_mad31054,38867
+static void *stbi__malloc_mad4(stbi__malloc_mad41061,39107
+static int stbi__addints_valid(1069,39392
+static int stbi__mul2shorts_valid(1077,39754
+   #define stbi__err(1090,40290
+   #define stbi__err(1092,40355
+   #define stbi__err(1094,40401
+#define stbi__errpf(1097,40449
+#define stbi__errpuc(1098,40523
+STBIDEF void stbi_image_free(1100,40606
+static int stbi__vertically_flip_on_load_global 1113,40911
+STBIDEF void stbi_set_flip_vertically_on_load(1115,40965
+#define stbi__vertically_flip_on_load 1121,41140
+static STBI_THREAD_LOCAL int stbi__vertically_flip_on_load_local,1123,41222
+static STBI_THREAD_LOCAL int stbi__vertically_flip_on_load_local, stbi__vertically_flip_on_load_set;1123,41222
+STBIDEF void stbi_set_flip_vertically_on_load_thread(1125,41324
+#define stbi__vertically_flip_on_load 1131,41521
+static void *stbi__load_main(stbi__load_main1136,41795
+static stbi_uc *stbi__convert_16_to_8(stbi__convert_16_to_81189,43767
+static stbi__uint16 *stbi__convert_8_to_16(stbi__convert_8_to_161205,44241
+static void stbi__vertical_flip(1221,44748
+static void stbi__vertical_flip_slices(1246,45542
+static unsigned char *stbi__load_and_postprocess_8bit(stbi__load_and_postprocess_8bit1259,45876
+static stbi__uint16 *stbi__load_and_postprocess_16bit(stbi__load_and_postprocess_16bit1285,46717
+static void stbi__float_postprocess(1313,47716
+STBI_EXTERN __declspec(1325,48075
+static FILE *stbi__fopen(stbi__fopen1336,48706
+STBIDEF stbi_uc *stbi_load(stbi_load1365,49431
+STBIDEF stbi_uc *stbi_load_from_file(stbi_load_from_file1375,49750
+STBIDEF stbi__uint16 *stbi_load_from_file_16(stbi_load_from_file_161388,50152
+STBIDEF stbi_us *stbi_load_16(stbi_load_161401,50562
+STBIDEF stbi_us *stbi_load_16_from_memory(stbi_load_16_from_memory1414,50924
+STBIDEF stbi_us *stbi_load_16_from_callbacks(stbi_load_16_from_callbacks1421,51205
+STBIDEF stbi_uc *stbi_load_from_memory(stbi_load_from_memory1428,51528
+STBIDEF stbi_uc *stbi_load_from_callbacks(stbi_load_from_callbacks1435,51765
+STBIDEF stbi_uc *stbi_load_gif_from_memory(stbi_load_gif_from_memory1443,52065
+static float *stbi__loadf_main(stbi__loadf_main1459,52534
+STBIDEF float *stbi_loadf_from_memory(stbi_loadf_from_memory1477,53161
+STBIDEF float *stbi_loadf_from_callbacks(stbi_loadf_from_callbacks1484,53382
+STBIDEF float *stbi_loadf(stbi_loadf1492,53668
+STBIDEF float *stbi_loadf_from_file(stbi_loadf_from_file1502,53978
+STBIDEF int stbi_is_hdr_from_memory(1516,54384
+STBIDEF int      stbi_is_hdr 1530,54666
+STBIDEF int stbi_is_hdr_from_file(1541,54884
+STBIDEF int      stbi_is_hdr_from_callbacks(1558,55187
+static float stbi__l2h_gamma=1572,55517
+STBIDEF void   stbi_ldr_to_hdr_gamma(1574,55575
+STBIDEF void   stbi_ldr_to_hdr_scale(1575,55654
+static float stbi__h2l_gamma_i=1578,55741
+STBIDEF void   stbi_hdr_to_ldr_gamma(1580,55808
+STBIDEF void   stbi_hdr_to_ldr_scale(1581,55891
+   STBI__SCAN_load=1591,56110
+   STBI__SCAN_type,1592,56132
+   STBI__SCAN_header1593,56152
+static void stbi__refill_buffer(1596,56177
+stbi_inline static stbi_uc stbi__get8(1613,56806
+stbi_inline static int stbi__at_eof(1627,57167
+static void stbi__skip(1643,57716
+static int stbi__getn(1665,58258
+static int stbi__get16be(1693,58976
+static stbi__uint32 stbi__get32be(1703,59183
+static int stbi__get16le(1713,59415
+static stbi__uint32 stbi__get32le(1721,59552
+#define STBI__BYTECAST(1729,59713
+static stbi_uc stbi__compute_y(1745,60576
+static unsigned char *stbi__convert_format(stbi__convert_format1754,60883
+      #define STBI__COMBO(1772,61445
+      #define STBI__CASE(1773,61489
+      #undef STBI__CASE1791,63156
+static stbi__uint16 stbi__compute_y_16(1802,63298
+static stbi__uint16 *stbi__convert_format16(stbi__convert_format161811,63498
+      #define STBI__COMBO(1829,64071
+      #define STBI__CASE(1830,64115
+      #undef STBI__CASE1848,65834
+static float   *stbi__ldr_to_hdr(stbi__ldr_to_hdr1857,65933
+#define stbi__float2int(1882,66681
+static stbi_uc *stbi__hdr_to_ldr(stbi__hdr_to_ldr1883,66722
+#define FAST_BITS 1935,68683
+   stbi_uc  fast[fast1939,68780
+   stbi__uint16 code[code1941,68891
+   stbi_uc  values[values1942,68918
+   stbi_uc  size[size1943,68943
+   unsigned int maxcode[maxcode1944,68966
+   int    delta[delta1945,68995
+} stbi__huffman;1946,69057
+   stbi__context *s;s1950,69092
+   stbi__huffman huff_dc[huff_dc1951,69113
+   stbi__huffman huff_ac[huff_ac1952,69142
+   stbi__uint16 dequant[dequant1953,69171
+   stbi__int16 fast_ac[fast_ac1954,69203
+   int img_h_max,1957,69289
+   int img_h_max, img_v_max;1957,69289
+   int img_mcu_x,1958,69318
+   int img_mcu_x, img_mcu_y;1958,69318
+   int img_mcu_w,1959,69347
+   int img_mcu_w, img_mcu_h;1959,69347
+      int id;1964,69430
+      int h,1965,69444
+      int h,v;1965,69444
+      int tq;1966,69459
+      int hd,1967,69473
+      int hd,ha;1967,69473
+      int dc_pred;1968,69490
+      int x,1970,69510
+      int x,y,1970,69510
+      int x,y,w2,1970,69510
+      int x,y,w2,h2;1970,69510
+      stbi_uc *data;data1971,69531
+      void *raw_data,raw_data1972,69552
+      void *raw_data, *raw_coeff;raw_coeff1972,69552
+      stbi_uc *linebuf;linebuf1973,69586
+      short   *coeff;coeff1974,69610
+      int      coeff_w,1975,69654
+      int      coeff_w, coeff_h;1975,69654
+   } img_comp[img_comp1976,69723
+   stbi__uint32   code_buffer;1978,69742
+   int            code_bits;1979,69802
+   unsigned char  marker;1980,69857
+   int            nomore;1981,69932
+   int            progressive;1983,70004
+   int            spec_start;1984,70035
+   int            spec_end;1985,70065
+   int            succ_high;1986,70093
+   int            succ_low;1987,70122
+   int            eob_run;1988,70150
+   int            jfif;1989,70177
+   int            app14_color_transform;1990,70201
+   int            rgb;1991,70261
+   int scan_n,1993,70285
+   int scan_n, order[order1993,70285
+   int restart_interval,1994,70310
+   int restart_interval, todo;1994,70310
+   void (*idct_block_kernel)idct_block_kernel1997,70353
+   void (*YCbCr_to_RGB_kernel)YCbCr_to_RGB_kernel1998,70429
+   stbi_uc *(*resample_row_hv_2_kernel)resample_row_hv_2_kernel1999,70554
+} stbi__jpeg;2000,70659
+static int stbi__build_huffman(2002,70674
+static void stbi__build_fast_ac(2049,72078
+static void stbi__grow_buffer_unsafe(2074,72939
+static const stbi__uint32 stbi__bmask[stbi__bmask2093,73446
+stbi_inline static int stbi__jpeg_huff_decode(2096,73609
+static const int stbi__jbias[stbi__jbias2148,75195
+stbi_inline static int stbi__extend_receive(2152,75413
+stbi_inline static int stbi__jpeg_get_bits(2168,75971
+stbi_inline static int stbi__jpeg_get_bit(2180,76349
+static const stbi_uc stbi__jpeg_dezigzag[stbi__jpeg_dezigzag2193,76797
+static int stbi__jpeg_decode_block(2209,77269
+static int stbi__jpeg_decode_block_prog_dc(2264,79310
+static int stbi__jpeg_decode_block_prog_ac(2294,80519
+stbi_inline static stbi_uc stbi__clamp(2415,84561
+#define stbi__f2f(2425,84784
+#define stbi__fsh(2426,84835
+#define STBI__IDCT_1D(2429,84909
+static void stbi__idct_block(2466,86641
+static void stbi__idct_simd(2529,89269
+   #define dct_const(2536,89554
+   #define dct_rot(2540,89738
+   #define dct_widen(2549,90153
+   #define dct_wadd(2554,90382
+   #define dct_wsub(2559,90538
+   #define dct_bfly32o(2564,90737
+   #define dct_interleave8(2575,91218
+   #define dct_interleave16(2581,91390
+   #define dct_pass(2586,91519
+#undef dct_const2693,95987
+#undef dct_rot2694,96004
+#undef dct_widen2695,96019
+#undef dct_wadd2696,96036
+#undef dct_wsub2697,96052
+#undef dct_bfly32o2698,96068
+#undef dct_interleave82699,96087
+#undef dct_interleave162700,96110
+#undef dct_pass2701,96134
+static void stbi__idct_simd(2710,96280
+#define dct_long_mul(2727,97136
+#define dct_long_mac(2731,97299
+#define dct_widen(2735,97485
+#define dct_wadd(2740,97648
+#define dct_wsub(2745,97788
+#define dct_bfly32o(2750,97977
+#define dct_pass(2758,98230
+#define dct_trn16(2818,100402
+#define dct_trn32(2819,100491
+#define dct_trn64(2820,100672
+#undef dct_trn162840,101306
+#undef dct_trn322841,101323
+#undef dct_trn642842,101340
+#define dct_trn8_8(2863,102038
+#define dct_trn8_16(2864,102126
+#define dct_trn8_32(2865,102301
+#undef dct_trn8_82898,103315
+#undef dct_trn8_162899,103333
+#undef dct_trn8_322900,103352
+#undef dct_long_mul2903,103377
+#undef dct_long_mac2904,103397
+#undef dct_widen2905,103417
+#undef dct_wadd2906,103434
+#undef dct_wsub2907,103450
+#undef dct_bfly32o2908,103466
+#undef dct_pass2909,103485
+#define STBI__MARKER_none 2914,103525
+static stbi_uc stbi__get_marker(2918,103753
+#define STBI__RESTART(2931,104191
+static void stbi__jpeg_reset(2935,104341
+static int stbi__parse_entropy_coded_data(2948,104798
+static void stbi__jpeg_dequantize(3072,110564
+static void stbi__jpeg_finish(3079,110704
+static int stbi__process_marker(3098,111344
+static int stbi__process_scan_header(3202,114816
+static int stbi__free_jpeg_components(3241,116379
+static int stbi__process_frame_header(3263,116980
+#define stbi__DNL(3356,121747
+#define stbi__SOI(3357,121790
+#define stbi__EOI(3358,121833
+#define stbi__SOF(3359,121876
+#define stbi__SOS(3360,121949
+#define stbi__SOF_progressive(3362,121993
+static int stbi__decode_jpeg_header(3364,122043
+static stbi_uc stbi__skip_jpeg_junk_at_end(3388,122892
+static int stbi__decode_jpeg_image(3411,123726
+typedef stbi_uc *(*resample_row_func)resample_row_func3450,125073
+#define stbi__div4(3453,125206
+static stbi_uc *resample_row_1(resample_row_13455,125252
+static stbi_uc* stbi__resample_row_v_2(3464,125459
+static stbi_uc*  stbi__resample_row_h_2(3474,125764
+#define stbi__div16(3502,126490
+static stbi_uc *stbi__resample_row_hv_2(stbi__resample_row_hv_23504,126537
+static stbi_uc *stbi__resample_row_hv_2_simd(stbi__resample_row_hv_2_simd3529,127184
+static stbi_uc *stbi__resample_row_generic(stbi__resample_row_generic3645,131857
+#define stbi__float2fixed(3658,132292
+static void stbi__YCbCr_to_RGB_row(3659,132360
+static void stbi__YCbCr_to_RGB_simd(3685,133332
+static void stbi__setup_jpeg(3820,138826
+static void stbi__cleanup_jpeg(3842,139488
+   resample_row_func resample;3849,139606
+   stbi_uc *line0,line03850,139637
+   stbi_uc *line0,*line1;line13850,139637
+   int hs,3851,139663
+   int hs,vs;3851,139663
+   int w_lores;3852,139712
+   int ystep;3853,139763
+   int ypos;3854,139824
+} stbi__resample;3855,139876
+static stbi_uc stbi__blinn_8x8(3858,139952
+static stbi_uc *load_jpeg_image(load_jpeg_image3864,140083
+static void *stbi__jpeg_load(stbi__jpeg_load4027,146899
+static int stbi__jpeg_test(4041,147350
+static int stbi__jpeg_info_raw(4055,147711
+static int stbi__jpeg_info(4067,148012
+#define STBI__ZFAST_BITS 4090,148735
+#define STBI__ZFAST_MASK 4091,148805
+#define STBI__ZNSYMS 4092,148861
+   stbi__uint16 fast[fast4098,149048
+   stbi__uint16 firstcode[firstcode4099,149093
+   int maxcode[maxcode4100,149124
+   stbi__uint16 firstsymbol[firstsymbol4101,149144
+   stbi_uc  size[size4102,149177
+   stbi__uint16 value[value4103,149209
+} stbi__zhuffman;4104,149246
+stbi_inline static int stbi__bitreverse16(4106,149265
+stbi_inline static int stbi__bit_reverse(4115,149531
+static int stbi__zbuild_huffman(4123,149767
+   stbi_uc *zbuffer,zbuffer4178,151514
+   stbi_uc *zbuffer, *zbuffer_end;zbuffer_end4178,151514
+   int num_bits;4179,151549
+   int hit_zeof_once;4180,151566
+   stbi__uint32 code_buffer;4181,151588
+   char *zout;zout4183,151618
+   char *zout_start;zout_start4184,151633
+   char *zout_end;zout_end4185,151654
+   int   z_expandable;4186,151673
+   stbi__zhuffman z_length,4188,151697
+   stbi__zhuffman z_length, z_distance;4188,151697
+} stbi__zbuf;4189,151737
+stbi_inline static int stbi__zeof(4191,151752
+stbi_inline static stbi_uc stbi__zget8(4196,151848
+static void stbi__fill_bits(4201,151952
+stbi_inline static unsigned int stbi__zreceive(4213,152283
+static int stbi__zhuffman_decode_slowpath(4223,152519
+stbi_inline static int stbi__zhuffman_decode(4242,153222
+static int stbi__zexpand(4272,154183
+static const int stbi__zlength_base[stbi__zlength_base4294,155019
+static const int stbi__zlength_extra[stbi__zlength_extra4299,155168
+static const int stbi__zdist_base[stbi__zdist_base4302,155278
+static const int stbi__zdist_extra[stbi__zdist_extra4305,155440
+static int stbi__parse_huffman_block(4308,155554
+static int stbi__compute_huffman_codes(4358,157749
+static int stbi__parse_uncompressed_block(4408,159512
+static int stbi__parse_zlib_header(4437,160511
+static const stbi_uc stbi__zdefault_length[stbi__zdefault_length4451,161154
+static const stbi_uc stbi__zdefault_distance[stbi__zdefault_distance4463,161838
+static int stbi__parse_zlib(4480,162358
+static int stbi__do_zlib(4509,163252
+STBIDEF char *stbi_zlib_decode_malloc_guesssize(stbi_zlib_decode_malloc_guesssize4519,163500
+STBIDEF char *stbi_zlib_decode_malloc(stbi_zlib_decode_malloc4535,163995
+STBIDEF char *stbi_zlib_decode_malloc_guesssize_headerflag(stbi_zlib_decode_malloc_guesssize_headerflag4540,164153
+STBIDEF int stbi_zlib_decode_buffer(4556,164688
+STBIDEF char *stbi_zlib_decode_noheader_malloc(stbi_zlib_decode_noheader_malloc4567,165001
+STBIDEF int stbi_zlib_decode_noheader_buffer(4583,165461
+   stbi__uint32 length;4608,166237
+   stbi__uint32 type;4609,166261
+} stbi__pngchunk;4610,166283
+static stbi__pngchunk stbi__get_chunk_header(4612,166302
+static int stbi__check_png_header(4620,166468
+   stbi__context *s;s4631,166741
+   stbi_uc *idata,idata4632,166762
+   stbi_uc *idata, *expanded,expanded4632,166762
+   stbi_uc *idata, *expanded, *out;out4632,166762
+   int depth;4633,166798
+} stbi__png;4634,166812
+   STBI__F_none=4638,166834
+   STBI__F_sub=4639,166853
+   STBI__F_up=4640,166871
+   STBI__F_avg=4641,166888
+   STBI__F_paeth=4642,166906
+   STBI__F_avg_first4644,167008
+static stbi_uc first_row_filter[first_row_filter4647,167033
+static int stbi__paeth(4656,167217
+static const stbi_uc stbi__depth_scale_table[stbi__depth_scale_table4669,167693
+static void stbi__create_png_alpha_expand8(4674,167872
+static int stbi__create_png_image_raw(4695,168435
+static int stbi__create_png_image(4860,174493
+static int stbi__compute_transparency(4905,176162
+static int stbi__compute_transparency16(4930,176813
+static int stbi__expand_png_palette(4955,177500
+static int stbi__unpremultiply_on_load_global 4992,178428
+static int stbi__de_iphone_flag_global 4993,178479
+STBIDEF void stbi_set_unpremultiply_on_load(4995,178524
+STBIDEF void stbi_convert_iphone_png_to_rgb(5000,178687
+#define stbi__unpremultiply_on_load 5006,178857
+#define stbi__de_iphone_flag 5007,178929
+static STBI_THREAD_LOCAL int stbi__unpremultiply_on_load_local,5009,178993
+static STBI_THREAD_LOCAL int stbi__unpremultiply_on_load_local, stbi__unpremultiply_on_load_set;5009,178993
+static STBI_THREAD_LOCAL int stbi__de_iphone_flag_local,5010,179090
+static STBI_THREAD_LOCAL int stbi__de_iphone_flag_local, stbi__de_iphone_flag_set;5010,179090
+STBIDEF void stbi_set_unpremultiply_on_load_thread(5012,179174
+STBIDEF void stbi_convert_iphone_png_to_rgb_thread(5018,179383
+#define stbi__unpremultiply_on_load 5024,179566
+#define stbi__de_iphone_flag 5027,179807
+static void stbi__de_iphone(5032,180063
+#define STBI__PNG_TYPE(5075,181172
+static int stbi__parse_png_file(5077,181297
+static void *stbi__do_png(stbi__do_png5260,190452
+static void *stbi__png_load(stbi__png_load5292,191700
+static int stbi__png_test(5299,191894
+static int stbi__png_info_raw(5307,192020
+static int stbi__png_info(5319,192305
+static int stbi__png_is16(5326,192455
+static int stbi__bmp_test_raw(5343,192738
+static int stbi__bmp_test(5358,193165
+static int stbi__high_bit(5367,193323
+static int stbi__bitcount(5379,193643
+static int stbi__shiftsigned(5392,194129
+   int bpp,5414,194738
+   int bpp, offset,5414,194738
+   int bpp, offset, hsz;5414,194738
+   unsigned int mr,5415,194763
+   unsigned int mr,mg,5415,194763
+   unsigned int mr,mg,mb,5415,194763
+   unsigned int mr,mg,mb,ma,5415,194763
+   unsigned int mr,mg,mb,ma, all_a;5415,194763
+   int extra_read;5416,194799
+} stbi__bmp_data;5417,194818
+static int stbi__bmp_set_mask_defaults(5419,194837
+static void *stbi__bmp_parse_header(stbi__bmp_parse_header5445,195603
+static void *stbi__bmp_load(stbi__bmp_load5528,199035
+static int stbi__tga_get_comp(5736,207167
+static int stbi__tga_info(5752,207652
+static int stbi__tga_test(5817,210179
+static void stbi__tga_read_rgb16(5849,211760
+static void *stbi__tga_load(stbi__tga_load5868,212546
+static int stbi__psd_test(6078,220003
+static int stbi__psd_decode_rle(6085,220130
+static void *stbi__psd_load(stbi__psd_load6123,221081
+static int stbi__pic_is4(6333,228401
+static int stbi__pic_test_core(6343,228575
+   stbi_uc size,6361,228825
+   stbi_uc size,type,6361,228825
+   stbi_uc size,type,channel;6361,228825
+} stbi__pic_packet;6362,228855
+static stbi_uc *stbi__readval(stbi__readval6364,228876
+static void stbi__copyval(6378,229188
+static stbi_uc *stbi__pic_load_core(stbi__pic_load_core6387,229367
+static void *stbi__pic_load(stbi__pic_load6497,232926
+static int stbi__pic_test(6538,234169
+   stbi__int16 prefix;6552,234512
+   stbi_uc first;6553,234535
+   stbi_uc suffix;6554,234553
+} stbi__gif_lzw;6555,234572
+   int w,6559,234607
+   int w,h;6559,234607
+   stbi_uc *out;out6560,234619
+   stbi_uc *background;background6561,234691
+   stbi_uc *history;history6562,234781
+   int flags,6563,234802
+   int flags, bgindex,6563,234802
+   int flags, bgindex, ratio,6563,234802
+   int flags, bgindex, ratio, transparent,6563,234802
+   int flags, bgindex, ratio, transparent, eflags;6563,234802
+   stbi_uc  pal[pal6564,234853
+   stbi_uc lpal[lpal6565,234878
+   stbi__gif_lzw codes[codes6566,234903
+   stbi_uc *color_table;color_table6567,234933
+   int parse,6568,234958
+   int parse, step;6568,234958
+   int lflags;6569,234978
+   int start_x,6570,234993
+   int start_x, start_y;6570,234993
+   int max_x,6571,235018
+   int max_x, max_y;6571,235018
+   int cur_x,6572,235039
+   int cur_x, cur_y;6572,235039
+   int line_size;6573,235060
+   int delay;6574,235078
+} stbi__gif;6575,235092
+static int stbi__gif_test_raw(6577,235106
+static int stbi__gif_test(6587,235397
+static void stbi__gif_parse_colortable(6594,235513
+static int stbi__gif_header(6605,235817
+static int stbi__gif_info_raw(6636,236914
+static void stbi__out_gif_code(6651,237297
+static stbi_uc *stbi__process_gif_raster(stbi__process_gif_raster6688,238233
+static stbi_uc *stbi__gif_load_next(stbi__gif_load_next6775,241041
+static void *stbi__load_gif_main_outofmem(stbi__load_gif_main_outofmem6949,247575
+static void *stbi__load_gif_main(stbi__load_gif_main6960,247869
+static void *stbi__gif_load(stbi__gif_load7045,250523
+static int stbi__gif_info(7074,251344
+static int stbi__hdr_test_core(7084,251650
+static int stbi__hdr_test(7094,251863
+#define STBI__HDR_BUFLEN 7105,252084
+static char *stbi__hdr_gettoken(stbi__hdr_gettoken7106,252115
+static void stbi__hdr_convert(7128,252560
+static float *stbi__hdr_load(stbi__hdr_load7155,253344
+static int stbi__hdr_info(7286,258062
+static int stbi__bmp_info(7332,259026
+static int stbi__psd_info(7356,259493
+static int stbi__psd_is16(7391,260273
+static int stbi__pic_info(7420,260881
+static int      stbi__pnm_test(7491,262504
+static void *stbi__pnm_load(stbi__pnm_load7503,262736
+static int      stbi__pnm_isspace(7540,264207
+static void     stbi__pnm_skip_whitespace(7545,264339
+static int      stbi__pnm_isdigit(7559,264678
+static int      stbi__pnm_getinteger(7564,264757
+static int      stbi__pnm_info(7578,265177
+static int stbi__pnm_is16(7621,266350
+static int stbi__info_main(7629,266483
+static int stbi__is_16_main(7671,267447
+STBIDEF int stbi_info(7688,267745
+STBIDEF int stbi_info_from_file(7698,268031
+STBIDEF int stbi_is_16_bit(7709,268262
+STBIDEF int stbi_is_16_bit_from_file(7719,268519
+STBIDEF int stbi_info_from_memory(7731,268745
+STBIDEF int stbi_info_from_callbacks(7738,268938
+STBIDEF int stbi_is_16_bit_from_memory(7745,269168
+STBIDEF int stbi_is_16_bit_from_callbacks(7752,269331
+
+nob.c,356
+#define NOB_IMPLEMENTATION1,0
+    char *src;src6,63
+    char *out;out7,78
+} Program;8,93
+#define OPT_LEVEL 10,105
+void cflags(11,127
+void compile_program_cmd(17,299
+bool compile_program_sync(25,538
+Nob_Proc compile_program_async(31,683
+Program programs[programs37,834
+const char *libs[libs51,1415
+size_t lib_count 61,1630
+int main(63,1671

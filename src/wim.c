@@ -15,6 +15,7 @@ int main(int argc, char **argv) {
     }
 
     const char *filename = shift_args(&argc, &argv);
+	if (strcmp(filename, "-") == 0) filename = "/dev/stdout";
 
     Image img;
     if (!img_read(&img, stdin, program_name)) return 1;
